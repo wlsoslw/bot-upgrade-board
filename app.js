@@ -118,12 +118,11 @@
         h('button', { type: 'button', class: 'btn', text: '清除筛选', onclick: clearFilters })]));
       return;
     }
-    list.appendChild(h('div', { class: 'list-head', 'aria-hidden': 'true' }, [h('span', { text: 'bot / 职责' }), h('span', { text: '等级' }), h('span', { text: '本周目标' }), h('span', { text: '今日产出' }), h('span', { text: '状态' })]));
+    list.appendChild(h('div', { class: 'list-head', 'aria-hidden': 'true' }, [h('span', { text: 'bot / 岗位' }), h('span', { text: '等级' }), h('span', { text: '今日产出' }), h('span', { text: '状态' })]));
     rows.forEach(function (b) {
       list.appendChild(h('button', { type: 'button', class: 'row', 'data-bot': b.name, onclick: function () { setState({ bot: b.name }); } }, [
         h('span', { class: 'name' }, [b.name, h('span', { class: 'role', text: b.role || '—' })]),
         h('span', { class: 'lv', text: 'L' + b.level }),
-        h('span', { class: 'goal', text: b.week_goal || '本周目标未填写' }),
         h('span', { class: 'out', text: outText(b) }),
         h('span', { class: 'badge ' + STATUS_CLASS[b.status] }, [b.status])
       ]));
@@ -137,10 +136,9 @@
     $('d-name').textContent = b.name;
     var body = clear($('d-body'));
     body.appendChild(h('dl', { class: 'dl' }, [
-      h('dt', { text: '职责' }), h('dd', { text: b.role || '—' }),
+      h('dt', { text: '岗位' }), h('dd', { text: b.role || '—' }),
       h('dt', { text: '等级' }), h('dd', null, [h('span', { class: 'lv', text: 'Level ' + b.level })]),
       h('dt', { text: '状态' }), h('dd', null, [h('span', { class: 'badge ' + STATUS_CLASS[b.status], text: b.status })]),
-      h('dt', { text: '本周目标' }), h('dd', { text: b.week_goal || '未填写' }),
       h('dt', { text: '今日产出' }), h('dd', { text: outText(b) }),
       h('dt', { text: '证据' }), h('dd', { class: b.has_evidence ? 'verified' : 'unverified', text: b.has_evidence ? '已核实：文件存在且非空（内容未验收）' : '暂无已核实的产出' }),
       h('dt', { text: '今日复盘' }), h('dd', { text: b.retro_today ? '已写' : '未写' }),

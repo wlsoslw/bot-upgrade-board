@@ -87,7 +87,7 @@ select{padding:0 var(--s3)}
 
 .list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
 .list:focus{outline:none}
-.row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(150px,1.1fr) 56px minmax(0,2.4fr) 110px 120px;gap:var(--s4);align-items:center;padding:var(--s3) var(--s4);border-top:1px solid var(--border);cursor:pointer;transition:background-color .12s}
+.row{all:unset;box-sizing:border-box;display:grid;grid-template-columns:minmax(150px,1fr) 56px 140px 120px;gap:var(--s4);align-items:center;padding:var(--s3) var(--s4);border-top:1px solid var(--border);cursor:pointer;transition:background-color .12s}
 .row:first-child{border-top:0}
 .row:hover{background:var(--surface-2)}
 .row:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
@@ -98,7 +98,7 @@ select{padding:0 var(--s3)}
 .out{font-size:var(--t-sm);color:var(--muted)}
 .badge{display:inline-flex;align-items:center;gap:6px;font-size:var(--t-sm);font-weight:550;padding:3px 10px;border-radius:999px;justify-self:start;white-space:nowrap}
 .badge.s-ok{color:var(--ok);background:var(--ok-bg)}.badge.s-warn{color:var(--warn);background:var(--warn-bg)}.badge.s-bad{color:var(--bad);background:var(--bad-bg)}.badge.s-na{color:var(--na);background:var(--na-bg)}
-.list-head{display:grid;grid-template-columns:minmax(150px,1.1fr) 56px minmax(0,2.4fr) 110px 120px;gap:var(--s4);padding:var(--s2) var(--s4);font-size:var(--t-xs);color:var(--muted);background:var(--surface-2);border-bottom:1px solid var(--border)}
+.list-head{display:grid;grid-template-columns:minmax(150px,1fr) 56px 140px 120px;gap:var(--s4);padding:var(--s2) var(--s4);font-size:var(--t-xs);color:var(--muted);background:var(--surface-2);border-bottom:1px solid var(--border)}
 .state{padding:var(--s7) var(--s4);text-align:center;display:flex;flex-direction:column;align-items:center;gap:var(--s3)}
 .state h3{font-size:var(--t-md)}
 .state p{color:var(--muted);max-width:44ch}
@@ -130,8 +130,8 @@ select{padding:0 var(--s3)}
   .summary .kpi:first-child{grid-column:1/-1;flex-direction:row;align-items:baseline;justify-content:space-between}
   .summary .kpi.wide{grid-column:1/-1}
   .list-head{display:none}
-  .row{grid-template-columns:1fr auto;grid-template-areas:"name badge" "goal goal" "lv out";gap:var(--s2) var(--s3);padding:var(--s4)}
-  .row .name{grid-area:name}.row .badge{grid-area:badge;justify-self:end}.row .goal{grid-area:goal}.row .lv{grid-area:lv}.row .out{grid-area:out;justify-self:end}
+  .row{grid-template-columns:1fr auto;grid-template-areas:"name badge" "lv out";gap:var(--s2) var(--s3);padding:var(--s4)}
+  .row .name{grid-area:name}.row .badge{grid-area:badge;justify-self:end}.row .lv{grid-area:lv}.row .out{grid-area:out;justify-self:end}
   .controls{width:100%}.search{flex:1 1 100%}input[type=search]{width:100%}.sel{flex:1}.sel select{width:100%}
   .top{align-items:flex-start}
 }

@@ -23,7 +23,7 @@
     return bots.filter(function (b) {
       if (f.level !== '' && f.level != null && String(b.level) !== String(f.level)) return false;
       if (f.status && b.status !== f.status) return false;
-      if (q && (norm(b.name) + norm(b.role) + norm(b.week_goal)).indexOf(q) === -1) return false;
+      if (q && (norm(b.name) + norm(b.role)).indexOf(q) === -1) return false;
       return true;
     });
   }
