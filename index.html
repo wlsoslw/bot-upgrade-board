@@ -28,7 +28,7 @@
       <div class="hero-copy">
         <h1 id="hero-h"><span id="k-total" class="num">—</span> 个内容制作 bot，今天从 Level 0 出发</h1>
         <p class="lede" id="baseline"><span id="b-date">10-30</span> 是基线日：所有 bot 都从 Level 0 起步，等级只由 bot manager 依据已核实的产出上调。已记录 <span id="b-days" class="num">1</span> 天。内容组待升级 <span id="up-n" class="num">0</span> 个（仍为 L0）；另有 <span id="ops-n" class="num">0</span> 个运营支持 bot 不参与等级评定。</p>
-        <div class="hero-cta"><a class="btn primary" href="#list-h">查看角色卡</a><span class="hint">按 <kbd>/</kbd> 搜索</span></div>
+        <div class="hero-cta"><a class="btn primary" href="#list-h">查看角色卡</a><span class="hint">按 <kbd>/</kbd> 搜索，<kbd>Esc</kbd> 关闭详情</span></div>
       </div>
       <div class="hero-stats">
         <figure class="ring-card">
@@ -45,18 +45,7 @@
       </div>
     </section>
 
-    <section class="rank" aria-labelledby="rank-h">
-      <div class="sec-head"><h2 id="rank-h">等级榜</h2><p class="muted">先按等级、再按今日产出件数排序；两项都相同则并列同名次（如 1、1、3），并列内按名称排列。</p></div>
-      <ol id="rank" class="rank-list"></ol>
-    </section>
 
-<section class="traj" aria-labelledby="traj-h">
-      <div class="traj-head">
-        <h2 id="traj-h">升级轨迹</h2>
-        <p class="muted" id="traj-note">目前只有基线日一个点，之后每天追加一个快照。</p>
-      </div>
-      <div id="traj-chart" class="traj-chart"></div>
-    </section>
 
     <section class="board" aria-labelledby="list-h">
       <div class="toolbar">
@@ -73,6 +62,20 @@
         </div>
       </div>
       <div id="list" class="list" tabindex="-1"></div>
+    </section>
+    <section class="rank" aria-labelledby="rank-h">
+      <div class="sec-head"><h2 id="rank-h">今日榜</h2><p class="muted">先按等级、再按今日产出件数排序；两项都相同则并列同名次（如 1、1、3），并列内按名称排列。</p></div>
+      <ol id="rank" class="rank-list"></ol>
+    </section>
+    <section class="traj" aria-labelledby="traj-h">
+      <div class="traj-head">
+        <h2 id="traj-h">升级进程</h2>
+        <p class="muted" id="traj-note">目前只有基线日一个点，之后每天追加一个快照。</p>
+      </div>
+      <div class="prog">
+        <div id="traj-chart" class="traj-chart"></div>
+        <ul id="ms-list" class="ms-list" aria-label="晋级、降级与成就"></ul>
+      </div>
     </section>
     <section class="ops" aria-labelledby="ops-h">
       <details id="ops-d">

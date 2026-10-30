@@ -30,6 +30,7 @@
     var hash = L.serializeState(state);
     var url = location.pathname + location.search + hash;
     if (replace) history.replaceState(null, '', url); else history.pushState(null, '', url);
+    if ('bot' in patch && patch.bot) return openDetail(patch.bot);
     if (document.startViewTransition && !reduce && !('bot' in patch)) document.startViewTransition(render); else render();
   }
 
@@ -74,7 +75,7 @@
   }
   function renderSummary(agg) {
     countUp($('k-total'), agg.total);
-    var no = L.ops(data.bots).length; $('ops-n').textContent = no; $('ops-n2').textContent = no; $('up-n').textContent = agg.levels[0] || 0;
+    var no = L.ops(data.bots).length; countUp($('ops-n'), no); $('ops-n2').textContent = no; countUp($('up-n'), agg.levels[0] || 0);
     var applicable = agg.total - (agg.statuses['不适用'] || 0), done = agg.statuses['已交付'] || 0;
     var rate = applicable ? Math.round(100 * done / applicable) : 0;
     countUp($('rate'), rate);
@@ -111,7 +112,7 @@
       var p = arr[i - 1];
       if (!p || p.level !== b.level || (p.outputs_count || 0) !== (b.outputs_count || 0)) rank = i + 1;
       if (i >= 8) return;
-      ol.appendChild(h('li', null, [h('button', { type: 'button', class: 'rk' + (rank <= 3 ? ' top top' + rank : ''), onclick: function () { setState({ bot: b.name }); } }, [
+      ol.appendChild(h('li', null, [h('button', { type: 'button', 'data-bot': b.name, class: 'rk' + (rank <= 3 ? ' top top' + rank : ''), onclick: function () { setState({ bot: b.name }); } }, [
         h('span', { class: 'rk-n num', text: String(rank) }), avatar(b, 's'),
         h('span', { class: 'rk-name' }, [b.name, h('small', { text: b.role || '—' })]),
         h('span', { class: 'lvl', text: 'L' + b.level }), h('span', { class: 'rk-o num', text: (b.outputs_count || 0) + ' 件' })])]));
@@ -156,6 +157,29 @@
     box.appendChild(svg);
   }
 
+  // v2.1: milestones are derived only from real history snapshots; with no change they render a compact "lights up when" row.
+  function renderMilestones() {
+    var hist = data.history || [], ups = [], downs = [];
+    if (hist.length > 1) {
+      var a = hist[hist.length - 2].levels || {}, z = hist[hist.length - 1].levels || {};
+      Object.keys(z).forEach(function (k) { if (a[k] == null) return; if (z[k] > a[k]) ups.push(k + ' L' + a[k] + '→L' + z[k]); else if (z[k] < a[k]) downs.push(k + ' L' + a[k] + '→L' + z[k]); });
+    }
+    var rows = [
+      { k: 'up', t: '晋级', v: ups, when: '有 bot 被 bot manager 依据已核实产出上调等级后亮起' },
+      { k: 'down', t: '降级', v: downs, when: '有 bot 等级被下调后亮起' },
+      { k: 'ach', t: '成就', v: [], when: '成就规则由 bot manager 发布并有人达成后亮起；当前未定义成就' }
+    ];
+    var box = clear($('ms-list'));
+    rows.forEach(function (r) {
+      var live = r.v.length > 0;
+      box.appendChild(h('li', { class: 'ms ms-' + r.k + (live ? ' live' : ' idle') }, [
+        h('span', { class: 'ms-ico', 'aria-hidden': 'true' }),
+        h('span', { class: 'ms-t', text: r.t }),
+        h('span', { class: 'ms-v', text: live ? r.v.join('、') : '暂无记录' }),
+        h('span', { class: 'ms-w muted', text: live ? '最近一次快照对比' : r.when })]));
+    });
+    if (ups.length && !reduce) { var hero = document.querySelector('.ms-up'); hero && hero.classList.add('celebrate'); }
+  }
   function renderList(agg) {
     var rows = L.filterBots(L.content(data.bots), state), list = clear($('list'));
     list.removeAttribute('aria-busy');
@@ -169,7 +193,7 @@
       return;
     }
     rows.forEach(function (b, i) {
-      list.appendChild(h('button', { type: 'button', class: 'row card', 'data-bot': b.name, style: '--i:' + Math.min(i, 12) + ';view-transition-name:c' + slug(b.name),
+      list.appendChild(h('button', { type: 'button', class: 'row card lv' + Math.min(b.level, 5), 'data-bot': b.name, style: '--i:' + Math.min(i, 12) + ';view-transition-name:c' + slug(b.name),
         onclick: function () { setState({ bot: b.name }); } }, [
         h('span', { class: 'card-top' }, [avatar(b, 'm'), h('span', { class: 'lvl', text: 'L' + b.level })]),
         h('span', { class: 'name', text: b.name }), h('span', { class: 'role', text: b.role || '—' }),
@@ -190,7 +214,20 @@
     if (!rows.length) box.appendChild(h('p', { class: 'muted', text: state.level !== '' ? '运营支持组不参与等级，按等级筛选时不显示。' : '没有符合条件的运营支持 bot。' }));
   }
 
-  function renderDrawer() {
+  // v2.1: shared-element morph card -> centred detail card (desktop) / bottom sheet (mobile)
+  function openDetail(name) {
+    var card = Array.prototype.filter.call(document.querySelectorAll('.row,.rk,.ops-item'), function (r) { return r.getAttribute('data-bot') === name; })[0];
+    if (!document.startViewTransition || reduce || !card) { render(); return; }
+    var vt = 'c' + slug(name), av = card.querySelector('.av');
+    card.style.viewTransitionName = vt; if (av) av.style.viewTransitionName = 'sel-av';
+    lastFocus = card;
+    var t = document.startViewTransition(function () {
+      card.style.viewTransitionName = 'none'; if (av) av.style.viewTransitionName = '';
+      renderDrawer(vt);
+    });
+    t.finished.then(function () { card.style.viewTransitionName = card.classList.contains('row') ? vt : ''; var di = document.querySelector('.drawer-inner'); if (di) di.style.viewTransitionName = ''; var da = document.querySelector('.d-hero .av'); if (da) da.style.viewTransitionName = ''; }, function () {});
+  }
+  function renderDrawer(vt) {
     var dlg = $('drawer');
     var b = state.bot && data && data.bots.filter(function (x) { return x.name === state.bot; })[0];
     if (!b) { if (dlg.open) dlg.close(); return; }
@@ -214,7 +251,8 @@
         lv == null ? '当天不在名录' : 'Level ' + lv + (x.kind === 'baseline' ? '，起点' : '')]));
     });
     body.appendChild(h('section', { class: 'sec' }, [h('h3', { text: '等级时间线' }), hist.length ? tl : h('p', { class: 'muted', text: '暂无快照' })]));
-    if (!dlg.open) { lastFocus = document.activeElement; dlg.showModal(); }
+    if (vt) { document.querySelector('.drawer-inner').style.viewTransitionName = vt; var da = body.querySelector('.av'); if (da) da.style.viewTransitionName = 'sel-av'; }
+    if (!dlg.open) { if (!lastFocus || !lastFocus.getAttribute || lastFocus.getAttribute('data-bot') !== b.name) lastFocus = document.activeElement; dlg.showModal(); }
   }
 
   function render() {
@@ -236,7 +274,7 @@
         var err = L.validate(d); if (err) throw new Error(err);
         data = d; maxOut = Math.max(1, Math.max.apply(null, d.bots.map(function (b) { return b.outputs_count || 0; }).concat([0])));
         $('updated').textContent = '数据更新于 ' + L.fmtUtc8(d.updated_at) + ' · 每 5 分钟自动刷新';
-        renderBaseline(); renderTrajectory(); render(); renderRank();
+        renderBaseline(); renderTrajectory(); renderMilestones(); render(); renderRank();
       })
       .catch(function (e) {
         $('updated').textContent = data ? '刷新失败，显示的是上次数据' : '数据不可用';
@@ -269,8 +307,9 @@
   $('theme').addEventListener('click', function () {
     var root = document.documentElement;
     var dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-    root.dataset.theme = dark ? 'light' : 'dark';
-    try { localStorage.setItem('board-theme', root.dataset.theme); } catch (_) {}
+    var apply = function () { root.dataset.theme = dark ? 'light' : 'dark'; };
+    if (document.startViewTransition && !reduce) document.startViewTransition(apply); else apply();
+    try { localStorage.setItem('board-theme', dark ? 'light' : 'dark'); } catch (_) {}
   });
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (data) renderTrajectory(); }, 150); });
   setInterval(function () { if (!document.hidden) load(); }, REFRESH_MS);

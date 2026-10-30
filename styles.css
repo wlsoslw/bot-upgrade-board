@@ -179,3 +179,58 @@ h2{font-size:var(--t-l);font-weight:600}
 .ops-item{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--s3);font:inherit;color:var(--text);text-align:left;background:transparent;border:1px solid var(--line);border-radius:var(--r-m);padding:var(--s2) var(--s3);cursor:pointer}
 .ops-item:hover{background:var(--surface)}
 .ops-item .av{filter:saturate(.25)}
+/* ===== v2.1 ===== */
+/* card: lift + level-tinted border; same emphasis on keyboard focus */
+.card.lv1{--c:var(--l1)}.card.lv2{--c:var(--l2)}.card.lv3{--c:var(--l3)}.card.lv4{--c:var(--l4)}.card.lv5{--c:var(--l5)}
+.card{transition:transform .22s var(--ease),box-shadow .22s var(--ease),border-color .22s var(--ease)}
+.card::after{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.card:hover,.card:focus-visible{transform:translateY(-4px);border-color:color-mix(in srgb,var(--accent-2) 55%,var(--line-2));box-shadow:0 1px 0 rgba(255,255,255,.05) inset,0 22px 44px -18px color-mix(in srgb,var(--accent-2) 45%,rgba(0,0,0,.6))}
+.card:hover::after,.card:focus-visible::after{transform:scaleX(1)}
+.card:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px}
+.card:hover .av,.card:focus-visible .av{transform:scale(1.06)}
+.card .av{transition:transform .22s var(--spring)}
+.card:active{transform:translateY(-1px) scale(.985);transition-duration:.08s}
+.rk:focus-visible,.ops-item:focus-visible{border-color:var(--accent-2)}
+.rk{transition:border-color .15s var(--ease),transform .15s var(--ease),box-shadow .15s var(--ease)}
+.rk:hover{box-shadow:0 10px 24px -16px rgba(0,0,0,.5)}
+/* stagger: xp bars + ring fill in after their card */
+.card .xp-fill{animation-delay:calc(var(--i)*60ms + 200ms)}
+.ring-val{animation:ringin 1.1s var(--ease) .15s both}
+@keyframes ringin{from{stroke-dasharray:0 100}}
+.lvb-f{animation:grow .8s var(--ease) both}
+.lvb:nth-child(2) .lvb-f{animation-delay:80ms}.lvb:nth-child(3) .lvb-f{animation-delay:160ms}.lvb:nth-child(4) .lvb-f{animation-delay:240ms}
+/* theme + filter transitions */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.25s;animation-timing-function:var(--ease)}
+/* progress: chart + compact milestone rows side by side */
+.prog{display:grid;grid-template-columns:1.4fr 1fr;gap:var(--s5);align-items:start}
+.ms-list{list-style:none;margin:0;padding:0;display:grid;gap:var(--s2)}
+.ms{display:grid;grid-template-columns:auto 3em 1fr;grid-template-rows:auto auto;column-gap:var(--s3);align-items:center;padding:var(--s2) var(--s3);border-radius:var(--r-m);font-size:var(--t-s)}
+.ms.idle{border:1px dashed var(--line-2);color:var(--muted)}
+.ms.live{border:1px solid color-mix(in srgb,var(--ok) 50%,transparent);background:color-mix(in srgb,var(--ok) 8%,transparent)}
+.ms-ico{grid-row:1/3;width:22px;height:22px;border-radius:50%;border:1.5px dashed var(--muted)}
+.ms.live .ms-ico{border:0;background:var(--ok)}
+.ms-up .ms-ico{border-radius:6px}.ms-ach .ms-ico{border-radius:4px;transform:rotate(45deg) scale(.8)}
+.ms-t{font-weight:600;color:var(--text)}
+.ms-w{grid-column:2/4;font-size:var(--t-xs)}
+.ms.celebrate .ms-ico{animation:pop .6s var(--spring) 2}
+@keyframes pop{50%{transform:scale(1.25)}}
+/* detail: centred card (desktop), bottom sheet (mobile) — replaces right drawer */
+.drawer{margin:auto;height:auto;max-height:min(86dvh,760px);width:min(560px,calc(100vw - 32px));border:1px solid var(--line-2);border-radius:var(--r-l);box-shadow:0 40px 120px -30px rgba(0,0,0,.6);overflow:auto}
+.drawer-inner{background:var(--surface);border-radius:inherit}
+.drawer[open]{animation:pop-in .3s var(--ease)}
+@keyframes pop-in{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.drawer::backdrop{background:rgba(0,0,0,.5);backdrop-filter:blur(6px)}
+::view-transition-group(sel-av){animation-duration:.35s}
+@media (max-width:640px){
+  .drawer{margin:auto 0 0;width:100vw;max-width:100vw;max-height:88dvh;border-radius:var(--r-l) var(--r-l) 0 0;border-width:1px 0 0}
+  .drawer-inner::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:var(--line-2);margin:-8px auto var(--s3)}
+  .drawer[open]{animation:sheet .32s var(--ease)}
+  @keyframes sheet{from{transform:translateY(100%)}}
+}
+@media (max-width:860px){.prog{grid-template-columns:1fr}}
+@media (hover:none){.card:hover{transform:none;box-shadow:var(--shadow)}}
+@media (prefers-reduced-motion:reduce){.card:hover,.card:focus-visible,.card:active{transform:none}::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+.drawer{height:fit-content}.drawer-inner{min-height:0}
+/* refs: Linear hero tight tracking; Vercel pill CTAs */
+.hero h1{letter-spacing:-.025em}
+.btn.primary{border-radius:99px;padding:0 var(--s4)}
