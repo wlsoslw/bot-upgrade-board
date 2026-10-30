@@ -74,6 +74,7 @@
   }
   function renderSummary(agg) {
     countUp($('k-total'), agg.total);
+    var no = L.ops(data.bots).length; $('ops-n').textContent = no; $('ops-n2').textContent = no; $('up-n').textContent = agg.levels[0] || 0;
     var applicable = agg.total - (agg.statuses['不适用'] || 0), done = agg.statuses['已交付'] || 0;
     var rate = applicable ? Math.round(100 * done / applicable) : 0;
     countUp($('rate'), rate);
@@ -104,7 +105,7 @@
     fs.value = state.status;
   }
   function renderRank() {
-    var arr = data.bots.slice().sort(function (a, b) { return b.level - a.level || (b.outputs_count || 0) - (a.outputs_count || 0) || a.name.localeCompare(b.name, 'zh'); });
+    var arr = L.content(data.bots).sort(function (a, b) { return b.level - a.level || (b.outputs_count || 0) - (a.outputs_count || 0) || a.name.localeCompare(b.name, 'zh'); });
     var ol = clear($('rank')), rank = 0;
     arr.forEach(function (b, i) {
       var p = arr[i - 1];
@@ -156,7 +157,7 @@
   }
 
   function renderList(agg) {
-    var rows = L.filterBots(data.bots, state), list = clear($('list'));
+    var rows = L.filterBots(L.content(data.bots), state), list = clear($('list'));
     list.removeAttribute('aria-busy');
     var filtered = state.q || state.level !== '' || state.status;
     $('count').textContent = filtered ? rows.length + ' / ' + agg.total : String(agg.total);
@@ -178,13 +179,24 @@
     });
   }
 
+  function renderOps() {
+    var rows = L.filterBots(L.ops(data.bots), { q: state.q, status: state.status, level: '' }), box = clear($('ops-list'));
+    if (state.level !== '') rows = [];
+    $('ops-count').textContent = rows.length + ' 个';
+    rows.forEach(function (b) {
+      box.appendChild(h('button', { type: 'button', class: 'ops-item', 'data-bot': b.name, onclick: function () { setState({ bot: b.name }); } }, [
+        avatar(b, 's'), h('span', { class: 'rk-name' }, [b.name, h('small', { text: b.role || '—' })]), h('span', { class: 'badge ' + STATUS_CLASS[b.status], text: b.status })]));
+    });
+    if (!rows.length) box.appendChild(h('p', { class: 'muted', text: state.level !== '' ? '运营支持组不参与等级，按等级筛选时不显示。' : '没有符合条件的运营支持 bot。' }));
+  }
+
   function renderDrawer() {
     var dlg = $('drawer');
     var b = state.bot && data && data.bots.filter(function (x) { return x.name === state.bot; })[0];
     if (!b) { if (dlg.open) dlg.close(); return; }
     $('d-name').textContent = b.name;
     var body = clear($('d-body'));
-    body.appendChild(h('div', { class: 'd-hero' }, [avatar(b, 'l'), h('div', null, [h('span', { class: 'lvl big', text: 'Level ' + b.level }), xpBar(b)])]));
+    body.appendChild(h('div', { class: 'd-hero' }, [avatar(b, 'l'), h('div', null, L.isOps(b) ? [h('span', { class: 'muted', text: '运营支持组 · 不参与等级评定' })] : [h('span', { class: 'lvl big', text: 'Level ' + b.level }), xpBar(b)])]));
     body.appendChild(h('dl', { class: 'dl' }, [
       h('dt', { text: '岗位' }), h('dd', { text: b.role || '—' }),
       h('dt', { text: '等级' }), h('dd', null, [h('span', { class: 'lv', text: 'Level ' + b.level })]),
@@ -207,8 +219,8 @@
 
   function render() {
     if (!data) return;
-    var agg = L.aggregate(data.bots);
-    renderSummary(agg); renderList(agg); renderDrawer();
+    var agg = L.aggregate(L.content(data.bots));
+    renderSummary(agg); renderList(agg); renderOps(); renderDrawer();
     $('q').value !== state.q && ($('q').value = state.q);
   }
 

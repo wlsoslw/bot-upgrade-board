@@ -59,6 +59,9 @@
     return '';
   }
 
-  return { STATUSES: STATUSES, aggregate: aggregate, filterBots: filterBots, parseState: parseState,
+  function isOps(b) { return b.group === 'ops'; }
+  function content(bots) { return bots.filter(function (b) { return !isOps(b); }); }
+  function ops(bots) { return bots.filter(isOps); }
+  return { isOps: isOps, content: content, ops: ops, STATUSES: STATUSES, aggregate: aggregate, filterBots: filterBots, parseState: parseState,
     serializeState: serializeState, fmtUtc8: fmtUtc8, validate: validate };
 });
