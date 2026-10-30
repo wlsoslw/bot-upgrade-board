@@ -165,3 +165,4 @@ h2{font-size:var(--t-l);font-weight:600}
 @media (prefers-reduced-motion:reduce){::view-transition-group(*){animation:none!important}}
 [hidden]{display:none!important}
 @media (max-width:520px){.list{grid-template-columns:1fr 1fr;gap:var(--s2)}.card .name{font-size:var(--t-m)}.card-foot{flex-wrap:wrap}.rank-list{grid-template-columns:1fr}}
+.rank-list{min-height:112px}.list{min-height:620px}@media (max-width:520px){.rank-list{min-height:440px}}
