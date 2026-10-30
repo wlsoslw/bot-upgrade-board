@@ -1,0 +1,283 @@
+{
+ "schema": 1,
+ "updated_at": "2026-10-30T20:14:00+08:00",
+ "baseline_date": "2026-10-30",
+ "summary": {
+  "total": 18,
+  "level_counts": {
+   "L0": 18
+  },
+  "status_counts": {
+   "已交付": 15,
+   "进行中": 2,
+   "逾期": 0,
+   "不适用": 1
+  }
+ },
+ "bots": [
+  {
+   "name": "配置bot",
+   "role": "配置执行层：台账、名册、职能图明细、描述草稿与 CHANGELOG、日报排版、备份目录整理",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "P1 每周对账（描述↔live↔名录↔Page），发现项上报 bot manager 带背景+选项+推荐；完成＝报告写完并回链",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "编程Bot",
+   "role": "编程方向 leader：①统筹所有编程类工作（脚本、工具、插件/连接器、自动化、UE/Maya/Blender 工具代码",
+   "level": 0,
+   "status": "进行中",
+   "week_goal": "优先级：① canvas-tool 回归与维护（每次画布Bot 反馈问题→先加用例再修）；② UE/Maya 工具开源先行评估+最小验证（先写取舍）；③ 本地编码代理编排验证（需唯…",
+   "outputs_count": 0,
+   "output_types": {},
+   "has_evidence": false,
+   "retro_today": true
+  },
+  {
+   "name": "画布Bot",
+   "role": "内网无限画布（Seedance 2.0/2.5、Nano Banana Pro、Imag",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "没人派活时按序：① + 回归复测；②按模板整理已有节点（只改自己建的，不删他人节点）；③补手册/坑清单；④把导演bot/GameArt 反馈的改动整理成版本链。禁区：任何生成/扣费…",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "AI资讯bot",
+   "role": "AI 资讯与方法调研：GitHub/Notion 日报、过场 AI 方法跟踪",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 缺档自检并补档（榜单、日报）→ 完成=文件齐全；记 retros。",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "交易bot",
+   "role": "副业自动化：零沟通 SEO/数字产品管线验证与日更（主线 CounterCrop）；经批准的 A 股模拟盘",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "W1 | 11-02 | 用决策日志模板回填10-26至11-06每日记录",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": false
+  },
+  {
+   "name": "社媒运营bot",
+   "role": "X 与小红书运营创意：选题、钩子、标题与配图方向、发布节奏、数据复盘",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 维护选题库：每周补 3 条并做撞车检查 → 完成=文件追加且每条有检索记录。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "电影脚本bot",
+   "role": "剧本与分镜：《旅人》过场剧本与拉片；八云视频分镜与旁白稿",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 补撤退型样本：查 4G 的 p001–p102 和其他作的源，完成标准是确认 1 例或证明没有 → 写进拆镜文档并在 retros 记一条",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "layoutbot",
+   "role": "《旅人》过场 Blender layout / 灰盒预演：构图、相机动画与节奏",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "优先级：①把当前样例表 H1–H8 做成 CAM_* 灰盒并出 playblast（完成=playblast+contact+QA 清单打勾，汇报给 bot manager 一行+…",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": false
+  },
+  {
+   "name": "GameArt",
+   "role": "GameArt 方向 leader（类似主美）：造型与跨镜连续性（核心）、游戏物料生产与管理；独家用 Midjourne",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "优先级：①等待中的造型比对请求（白鬃怪 i2i 回图→audit，完成=audit 文件+回链需求方）→ ②手册缺口：比例表、词汇表（完成=文件落盘+手册变更日志）→ ③抽样复检已…",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": false
+  },
+  {
+   "name": "导演bot",
+   "role": "影视化主执行：即梦/Seedance 提词与出片自检（《旅人》、八云）",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 补落盘：每次出图或出片后 30 分钟内写打分和复盘。完成标准：retros 有对应条目和证据路径。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "剪辑bot",
+   "role": "后期剪辑（《旅人》、八云竖版）",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 对最近成片跑诊断+自检，缺的补记录（完成=文件落盘，汇报给制片/bot manager 一句+路径）。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "声音设计bot",
+   "role": "声音设计（《旅人》、八云）",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. P1：维护已交付物的正确性（只读复测，不改 W1/W2）。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "调色bot",
+   "role": "《旅人》过场成片 Look",
+   "level": 0,
+   "status": "进行中",
+   "week_goal": "1. 旅人任一支出现「画面锁定」→ 立即跑检查表+Look 交付（完成=第 5 节全部产出）。",
+   "outputs_count": 0,
+   "output_types": {},
+   "has_evidence": false,
+   "retro_today": true
+  },
+  {
+   "name": "制片bot",
+   "role": "制片板（《旅人》、八云）：镜表/排期、版本与交付验收、阻塞跟踪",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 修 board 内②③⑤静帧状态矛盾——先报 bot manager 确认以哪处为准再改；完成=两处一致+change_log 一行。",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "表格bot",
+   "role": "表现层：表格、PPT、motion 动效与 designer 类升级，让产出更易读、更有交互性",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 浏览器只读补核台账 7 条「无法验证」→ 完成=评分表无「无法验证」→ 更新 并回 bot manager。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "文秘Bot",
+   "role": "唯一的秘书·执行层：管理谷歌日历、闹钟与提醒、紧急重要事项兜底提醒；作为唯一与 bot manager 的沟通通道之一",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 每周五（或被唤醒时）扫未来 7 天日历，产出冲突/空档/待准备清单，存入 bot-experience，无变化不打扰。",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "英语Bot",
+   "role": "英语学习教练·执行层：7 项全开（个性化导师/核心词汇/实时对话/语法中文讲解/发音/记忆法/约20分钟日常习惯）",
+   "level": 0,
+   "status": "已交付",
+   "week_goal": "1. 摸底对话脚本与 10 分钟评估（完成：产出水平记录）。",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": true
+  },
+  {
+   "name": "phone bot",
+   "role": "描述为空，只响应唯一直接指令",
+   "level": 0,
+   "status": "不适用",
+   "week_goal": "",
+   "outputs_count": 0,
+   "output_types": {},
+   "has_evidence": false,
+   "retro_today": false
+  }
+ ],
+ "history": [
+  {
+   "date": "2026-10-30",
+   "kind": "baseline",
+   "total": 18,
+   "level_counts": {
+    "L0": 18
+   },
+   "status_counts": {
+    "已交付": 15,
+    "进行中": 2,
+    "逾期": 0,
+    "不适用": 1
+   },
+   "levels": {
+    "配置bot": 0,
+    "编程Bot": 0,
+    "画布Bot": 0,
+    "AI资讯bot": 0,
+    "交易bot": 0,
+    "社媒运营bot": 0,
+    "电影脚本bot": 0,
+    "layoutbot": 0,
+    "GameArt": 0,
+    "导演bot": 0,
+    "剪辑bot": 0,
+    "声音设计bot": 0,
+    "调色bot": 0,
+    "制片bot": 0,
+    "表格bot": 0,
+    "文秘Bot": 0,
+    "英语Bot": 0,
+    "phone bot": 0
+   }
+  }
+ ]
+}
