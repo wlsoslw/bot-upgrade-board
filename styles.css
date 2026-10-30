@@ -1,8 +1,8 @@
 :root{
   --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --bg:#f6f5f1;--surface:#fff;--surface-2:#efede7;--text:#1b1a17;--muted:#5c5850;--border:#e2dfd7;--border-strong:#c9c5ba;
-  --accent:#0d6656;--accent-soft:#e2f0ec;--on-accent:#fff;
+  --bg:#f6f5f1;--surface:#ffffff;--surface-2:#efede7;--text:#1b1a17;--muted:#5c5850;--border:#e2dfd7;--border-strong:#c9c5ba;
+  --accent:#0d6656;--accent-soft:#e2f0ec;--on-accent:#ffffff;
   --ok:#1a6a38;--ok-bg:#e4f2e8;--warn:#875000;--warn-bg:#fbefd9;--bad:#a3262a;--bad-bg:#f9e3e2;--na:#5c5850;--na-bg:#ecebe6;
   --focus:#0d6656;--shadow:0 1px 2px rgba(20,18,10,.06),0 8px 24px rgba(20,18,10,.06);
   --r:10px;--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--s7:48px;
