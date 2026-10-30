@@ -30,7 +30,7 @@
     var hash = L.serializeState(state);
     var url = location.pathname + location.search + hash;
     if (replace) history.replaceState(null, '', url); else history.pushState(null, '', url);
-    render();
+    if (document.startViewTransition && !reduce && !('bot' in patch)) document.startViewTransition(render); else render();
   }
 
   function renderStates(kind, msg) {
@@ -44,8 +44,41 @@
     ]));
   }
 
+  function hash(str) { var x = 2166136261; for (var i = 0; i < str.length; i++) { x ^= str.charCodeAt(i); x = Math.imul(x, 16777619); } return x >>> 0; }
+  function slug(name) { return 'a' + hash(String(name)).toString(36); }
+  var AVATARS = {};
+  function avatar(b, size) {
+    var hsh = hash(b.name), hue = hsh % 360, el = h('span', { class: 'av av-' + size, 'aria-hidden': 'true', style: '--h:' + hue });
+    var initial = (String(b.name).match(/[A-Za-z\u4e00-\u9fff]/) || ['?'])[0].toUpperCase();
+    if (AVATARS[slug(b.name)]) {
+      var img = h('img', { src: './avatars/' + slug(b.name) + '.webp', alt: '', width: 64, height: 64, loading: 'lazy', decoding: 'async' });
+      img.addEventListener('error', function () { img.remove(); el.classList.remove('has-img'); });
+      el.classList.add('has-img'); el.appendChild(img);
+    }
+    el.appendChild(h('span', { class: 'av-i', text: initial }));
+    return el;
+  }
+  var maxOut = 1;
+  function xpBar(b) {
+    var pct = Math.round(100 * (b.outputs_count || 0) / maxOut);
+    return h('span', { class: 'xp', title: '条长 = 今日产出件数 ÷ 全员当日最高件数（' + maxOut + '）。不是升级进度，等级只由 bot manager 调整。' }, [
+      h('span', { class: 'xp-track' }, [h('span', { class: 'xp-fill', style: '--p:' + pct / 100 })]),
+      h('span', { class: 'xp-n num', text: (b.outputs_count || 0) + ' 件' })]);
+  }
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el, to) {
+    var from = +el.textContent || 0;
+    if (reduce || from === to) { el.textContent = to; return; }
+    var t0 = performance.now(), d = 900;
+    (function step(t) { var k = Math.min(1, (t - t0) / d), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (to - from) * e); if (k < 1) requestAnimationFrame(step); })(t0);
+  }
   function renderSummary(agg) {
-    $('k-total').textContent = agg.total;
+    countUp($('k-total'), agg.total);
+    var applicable = agg.total - (agg.statuses['不适用'] || 0), done = agg.statuses['已交付'] || 0;
+    var rate = applicable ? Math.round(100 * done / applicable) : 0;
+    countUp($('rate'), rate);
+    $('rate-note').textContent = '已交付 ' + done + ' / 适用 ' + applicable + ' 个';
+    requestAnimationFrame(function () { $('rate-ring').setAttribute('stroke-dasharray', rate + ' 100'); });
     var ks = clear($('k-status'));
     L.STATUSES.forEach(function (s) {
       if (s === '不适用' && !agg.statuses[s]) return;
@@ -53,19 +86,35 @@
         onclick: function () { setState({ status: state.status === s ? '' : s }); } },
         [h('span', { class: 'mark', 'aria-hidden': 'true' }), s + ' ', h('b', { text: String(agg.statuses[s] || 0) })]));
     });
-    var kl = clear($('k-level'));
-    Object.keys(agg.levels).sort(function (a, b) { return a - b; }).forEach(function (lv) {
-      kl.appendChild(h('button', { type: 'button', class: 'chip', 'aria-pressed': String(state.level === lv),
-        onclick: function () { setState({ level: state.level === lv ? '' : lv }); } },
-        ['Level ' + lv + ' ', h('b', { text: String(agg.levels[lv]) })]));
-    });
-    var fl = $('f-level'), cur = fl.value;
+    var kl = clear($('k-level')), lvKeys = Object.keys(agg.levels).sort(function (a, b) { return a - b; });
+    var maxLv = Math.max(3, +lvKeys[lvKeys.length - 1] || 0);
+    for (var lv = 0; lv <= maxLv; lv++) (function (lv) {
+      var n = agg.levels[lv] || 0, key = String(lv);
+      var kids = [h('span', { class: 'lvb-l', text: 'L' + lv }), h('span', { class: 'lvb-t' }, [h('span', { class: 'lvb-f', style: '--p:' + (n / agg.total) })])];
+      if (n) kl.appendChild(h('button', { type: 'button', class: 'chip lvb', 'aria-pressed': String(state.level === key), title: '点击筛选 Level ' + lv,
+        onclick: function () { setState({ level: state.level === key ? '' : key }); } }, kids.concat([h('b', { class: 'num', text: String(n) })])));
+      else kl.appendChild(h('div', { class: 'lvb empty' }, kids.concat([h('span', { class: 'num muted', text: '0' })])));
+    })(lv);
+    var fl = $('f-level');
     while (fl.options.length > 1) fl.remove(1);
-    Object.keys(agg.levels).sort(function (a, b) { return a - b; }).forEach(function (lv) { fl.add(new Option('Level ' + lv, lv)); });
-    fl.value = state.level; void cur;
+    lvKeys.forEach(function (lv) { fl.add(new Option('Level ' + lv, lv)); });
+    fl.value = state.level;
     var fs = $('f-status');
     if (fs.options.length === 1) L.STATUSES.forEach(function (s) { fs.add(new Option(s, s)); });
     fs.value = state.status;
+  }
+  function renderRank() {
+    var arr = data.bots.slice().sort(function (a, b) { return b.level - a.level || (b.outputs_count || 0) - (a.outputs_count || 0) || a.name.localeCompare(b.name, 'zh'); });
+    var ol = clear($('rank')), rank = 0;
+    arr.forEach(function (b, i) {
+      var p = arr[i - 1];
+      if (!p || p.level !== b.level || (p.outputs_count || 0) !== (b.outputs_count || 0)) rank = i + 1;
+      if (i >= 8) return;
+      ol.appendChild(h('li', null, [h('button', { type: 'button', class: 'rk' + (rank <= 3 ? ' top top' + rank : ''), onclick: function () { setState({ bot: b.name }); } }, [
+        h('span', { class: 'rk-n num', text: String(rank) }), avatar(b, 's'),
+        h('span', { class: 'rk-name' }, [b.name, h('small', { text: b.role || '—' })]),
+        h('span', { class: 'lvl', text: 'L' + b.level }), h('span', { class: 'rk-o num', text: (b.outputs_count || 0) + ' 件' })])]));
+    });
   }
 
   function renderBaseline() {
@@ -87,7 +136,7 @@
     });
     var maxL = Math.max(3, Math.max.apply(null, avg.map(function (a) { return a.max; })));
     note.textContent = hist.length === 1 ? '目前只有基线日一个点，之后每天追加一个快照。' : '平均等级，近 ' + hist.length + ' 天';
-    var W = Math.max(280, Math.round(box.clientWidth || 1000)), H = 110, pl = 44, pr = 16, pt = 12, pb = 28;
+    var W = Math.max(280, Math.round(box.clientWidth || 1000)), H = 150, pl = 44, pr = 16, pt = 12, pb = 28;
     var x = function (i) { return avg.length === 1 ? pl + 12 : pl + i * (W - pl - pr) / (avg.length - 1); };
     var y = function (v) { return pt + (1 - v / maxL) * (H - pt - pb); };
     var NS = 'http://www.w3.org/2000/svg';
@@ -118,13 +167,13 @@
         h('button', { type: 'button', class: 'btn', text: '清除筛选', onclick: clearFilters })]));
       return;
     }
-    list.appendChild(h('div', { class: 'list-head', 'aria-hidden': 'true' }, [h('span', { text: 'bot / 岗位' }), h('span', { text: '等级' }), h('span', { text: '今日产出' }), h('span', { text: '状态' })]));
-    rows.forEach(function (b) {
-      list.appendChild(h('button', { type: 'button', class: 'row', 'data-bot': b.name, onclick: function () { setState({ bot: b.name }); } }, [
-        h('span', { class: 'name' }, [b.name, h('span', { class: 'role', text: b.role || '—' })]),
-        h('span', { class: 'lv', text: 'L' + b.level }),
-        h('span', { class: 'out', text: outText(b) }),
-        h('span', { class: 'badge ' + STATUS_CLASS[b.status] }, [b.status])
+    rows.forEach(function (b, i) {
+      list.appendChild(h('button', { type: 'button', class: 'row card', 'data-bot': b.name, style: '--i:' + Math.min(i, 12) + ';view-transition-name:c' + slug(b.name),
+        onclick: function () { setState({ bot: b.name }); } }, [
+        h('span', { class: 'card-top' }, [avatar(b, 'm'), h('span', { class: 'lvl', text: 'L' + b.level })]),
+        h('span', { class: 'name', text: b.name }), h('span', { class: 'role', text: b.role || '—' }),
+        xpBar(b),
+        h('span', { class: 'card-foot' }, [h('span', { class: 'out', text: outText(b) }), h('span', { class: 'badge ' + STATUS_CLASS[b.status] }, [b.status])])
       ]));
     });
   }
@@ -135,6 +184,7 @@
     if (!b) { if (dlg.open) dlg.close(); return; }
     $('d-name').textContent = b.name;
     var body = clear($('d-body'));
+    body.appendChild(h('div', { class: 'd-hero' }, [avatar(b, 'l'), h('div', null, [h('span', { class: 'lvl big', text: 'Level ' + b.level }), xpBar(b)])]));
     body.appendChild(h('dl', { class: 'dl' }, [
       h('dt', { text: '岗位' }), h('dd', { text: b.role || '—' }),
       h('dt', { text: '等级' }), h('dd', null, [h('span', { class: 'lv', text: 'Level ' + b.level })]),
@@ -167,13 +217,14 @@
   function load() {
     var btn = $('refresh'); btn.setAttribute('aria-busy', 'true');
     if (!data) renderStates('loading');
-    return fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' })
+    var av = fetch('./avatars.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (l) { AVATARS = {}; (l || []).forEach(function (k) { AVATARS[k] = 1; }); }).catch(function () {});
+    return av.then(function () { return fetch(DATA_URL + '?t=' + Date.now(), { cache: 'no-store' }); })
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (d) {
         var err = L.validate(d); if (err) throw new Error(err);
-        data = d;
+        data = d; maxOut = Math.max(1, Math.max.apply(null, d.bots.map(function (b) { return b.outputs_count || 0; }).concat([0])));
         $('updated').textContent = '数据更新于 ' + L.fmtUtc8(d.updated_at) + ' · 每 5 分钟自动刷新';
-        renderBaseline(); renderTrajectory(); render();
+        renderBaseline(); renderTrajectory(); render(); renderRank();
       })
       .catch(function (e) {
         $('updated').textContent = data ? '刷新失败，显示的是上次数据' : '数据不可用';
@@ -212,5 +263,6 @@
   var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (data) renderTrajectory(); }, 150); });
   setInterval(function () { if (!document.hidden) load(); }, REFRESH_MS);
   document.addEventListener('visibilitychange', function () { if (!document.hidden && data) load(); });
+  document.addEventListener('pointermove', function (e) { var c = e.target.closest && e.target.closest('.card'); if (!c) return; var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
   load();
 })();
