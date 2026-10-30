@@ -234,3 +234,31 @@ h2{font-size:var(--t-l);font-weight:600}
 /* refs: Linear hero tight tracking; Vercel pill CTAs */
 .hero h1{letter-spacing:-.025em}
 .btn.primary{border-radius:99px;padding:0 var(--s4)}
+/* v2.1 iteration / quest / deliverables */
+.side{display:grid;gap:var(--s3)}
+.iter-sum{display:flex;flex-wrap:wrap;gap:var(--s2) var(--s4);margin:0;font-size:var(--t-s)}
+.qbar{display:block;height:6px;border-radius:99px;background:var(--surface-2);overflow:hidden;flex:1}
+.qbar-f{display:block;height:100%;background:var(--ok);transform-origin:left;transform:scaleX(var(--p));animation:grow .8s var(--ease) both}
+.cq{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:var(--t-xs)}
+.cq-q{display:flex;align-items:center;gap:6px;flex:1 1 100%}
+.tag{border:1px solid var(--line-2);border-radius:99px;padding:0 8px;color:var(--text)}
+.tag.idle,.drive.idle{border-style:dashed;color:var(--muted)}
+.pend{margin:0;padding:var(--s2) var(--s3);border:1px dashed var(--line-2);border-radius:var(--r-s);color:var(--muted);font-size:var(--t-s)}
+.drive{display:inline-flex;flex-wrap:wrap;gap:6px;align-items:baseline;font-size:var(--t-s)}
+.drive.idle{border:1px dashed var(--line-2);border-radius:99px;padding:0 10px}
+.drive-a{color:var(--accent-2);font-weight:600}
+.qlist,.dlist,.bm,.gap{list-style:none;margin:var(--s2) 0 0;padding:0;display:grid;gap:6px;font-size:var(--t-s)}
+.qlist li{display:flex;gap:8px;align-items:baseline}
+.ck{flex:none;width:14px;height:14px;border:1.5px solid var(--muted);border-radius:4px;transform:translateY(2px)}
+.qlist .done .ck{background:var(--ok);border-color:var(--ok)}
+.gap li::before{content:"· ";color:var(--muted)}
+.fold{margin-top:var(--s3);font-size:var(--t-s)}.fold summary{cursor:pointer;color:var(--muted)}
+.it li{display:grid;gap:4px}.it-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dg{display:flex;align-items:center;gap:6px;font-size:var(--t-s);margin:var(--s3) 0 0}
+.ti{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linejoin:round}
+.dlist li{display:grid;grid-template-columns:1fr auto;gap:2px 8px}.dlist .drive{grid-column:1/-1}
+.dlist .lv,.bm .lv,.qhead .lv{margin-left:6px}
+.qhead{margin:0 0 6px}
+.sec h3 small{font-weight:400;font-size:var(--t-xs)}
+:root[data-theme=light]{--l1:#166534}@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--l1:#166534}}
+.qlist b{white-space:nowrap}.qlist li>small{flex:none}

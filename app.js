@@ -157,6 +157,87 @@
     box.appendChild(svg);
   }
 
+
+  // ---- v2.1 iteration / deliverables / quest / benchmarks (all fields come pre-sanitized from status.public.json) ----
+  var DRIVE_OK = /^https:\/\/(?:drive|docs)\.google\.com\/[A-Za-z0-9_\-\/]+$/;
+  var ITER_CLASS = { '未开始': 's-na', '进行中': 's-warn', '已交付': 's-ok', '受阻': 's-bad' };
+  var TYPE_ICON = { '文档': 'M4 2h6l4 4v12H4zM10 2v4h4', '图片': 'M3 4h14v12H3zM3 13l4-4 4 4 2-2 4 4', '音频': 'M7 14V5l9-2v9M7 14a2 2 0 1 1-4 0 2 2 0 0 1 4 0M16 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0', '视频': 'M3 5h10v10H3zM13 9l4-3v8l-4-3', '代码': 'M7 6l-4 4 4 4M13 6l4 4-4 4' };
+  function icon(type) { var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg'), p = document.createElementNS(NS, 'path');
+    svg.setAttribute('viewBox', '0 0 20 20'); svg.setAttribute('width', '16'); svg.setAttribute('height', '16'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('class', 'ti');
+    p.setAttribute('d', TYPE_ICON[type] || TYPE_ICON['文档']); svg.appendChild(p); return svg; }
+  function driveLink(url, label) {
+    if (url && DRIVE_OK.test(url)) return h('span', { class: 'drive' }, [h('a', { href: url, target: '_blank', rel: 'noopener noreferrer', class: 'drive-a', text: label + ' ↗' }), h('small', { class: 'muted', text: '需登录唯一的 Google 账号' })]);
+    return h('span', { class: 'drive idle', text: label + ' · 待建' });
+  }
+  function pending(t) { return h('p', { class: 'pend', text: t }); }
+  function bar(pct, label) { return h('span', { class: 'qbar', role: 'img', 'aria-label': label }, [h('span', { class: 'qbar-f', style: '--p:' + pct / 100 })]); }
+  function quest(b) { var lp = b.level_progress || []; var done = lp.filter(function (t) { return t.done; }).length; return { total: lp.length, done: done, left: lp.length - done }; }
+  function sec(title, kids, note) { return h('section', { class: 'sec' }, [h('h3', null, [title, note ? h('small', { class: 'muted', text: ' ' + note }) : null])].concat(kids)); }
+  function renderDetailV21(b, body) {
+    var q = quest(b);
+    // 1. quest
+    var qk = [];
+    if (q.total) {
+      qk.push(h('p', { class: 'qhead' }, [h('span', { class: 'lv', text: (b.current_level && b.current_level !== '不适用' ? b.current_level : 'L' + b.level) }), ' 距下一级 ' + q.done + '/' + q.total + '，还差 ' + q.left + ' 项']), bar(Math.round(100 * q.done / q.total), '已完成 ' + q.done + ' / ' + q.total));
+      var ul = h('ul', { class: 'qlist' });
+      b.level_progress.forEach(function (t) { ul.appendChild(h('li', { class: t.done ? 'done' : '' }, [h('span', { class: 'ck', 'aria-hidden': 'true' }), h('span', { class: 'sr-only', text: t.done ? '已完成：' : '未完成：' }), t.task_id ? h('b', { text: t.task_id + ' ' }) : null, t.task, h('small', { class: 'muted', text: (t.has_evidence ? ' · 有证据' : ' · 无证据') + (t.accepted_by ? ' · 验收：' + t.accepted_by : '') })])); });
+      qk.push(ul);
+    } else qk.push(pending('通关任务待配置bot 写入；写入后这里显示打勾清单和距下一级进度。'));
+    if ((b.next_level_gap || []).length) qk.push(h('ul', { class: 'gap' }, b.next_level_gap.map(function (g) { return h('li', { text: g }); })));
+    var sbd = b.score_breakdown || {}, sk = ['A', 'B', 'C', 'D', 'E', 'F'].filter(function (k) { return k in sbd; });
+    var allUndone = q.total > 0 && q.done === 0;
+    var sbKids = sk.length ? [h('dl', { class: 'dl' }, [].concat.apply([], sk.map(function (k) { return [h('dt', { text: k }), h('dd', { class: 'num', text: sbd[k] === null ? (sbd.F_status || '待唯一评/待BM评') : String(sbd[k]) })]; })).concat(
+        'total' in sbd ? [h('dt', { text: '合计' }), h('dd', null, [h('span', { class: 'num', text: String(sbd.total) + (sbd.threshold != null ? ' / 门槛 ' + sbd.threshold : '') }), allUndone ? h('small', { class: 'muted', text: ' 自动基线，不是评分' }) : null])] : [])),
+      sbd.note ? h('p', { class: 'muted', text: sbd.note }) : null] : [pending('分项分待配置bot 写入（维度与满分由等级标准文件定义）。')];
+    qk.push(h('details', { class: 'fold' }, [h('summary', { text: '评分口径' })].concat(sbKids)));
+    body.appendChild(sec('升级任务', qk));
+    // 2. iteration
+    var it = b.iteration_directions || [], ik;
+    if (it.length) { ik = h('ol', { class: 'tl it' }); it.forEach(function (x) { ik.appendChild(h('li', { class: 'it-' + (ITER_CLASS[x.status] || 's-na') }, [
+      h('span', { class: 'it-top' }, [h('b', { text: x.direction }), h('span', { class: 'badge ' + (ITER_CLASS[x.status] || 's-na'), text: x.status })]),
+      h('span', { class: 'xp' }, [bar(x.progress, '进度 ' + x.progress + '%'), h('span', { class: 'num', text: x.progress + '%' })]),
+      h('small', { class: 'muted', text: '下一个实物：' + (x.next_physical_deliverable || '未填') + ' · 更新 ' + (x.last_update ? x.last_update.slice(5) : '未知') + ' · ' + (x.has_evidence ? '有证据' : '无证据') })])); }); }
+    else ik = pending('迭代方向待该 bot 自提。');
+    body.appendChild(sec('迭代方向', [ik], b.self_iteration_last_update ? '最近自提 ' + b.self_iteration_last_update.slice(5) + ' (UTC+8)' : ''));
+    // 3. deliverables grouped by type
+    var dk = [driveLink(b.drive_folder_url, '该 bot 的 Drive 子夹')], ds = b.deliverables || [];
+    if (b.current_version) dk.unshift(h('p', null, ['当前版本 ', h('span', { class: 'lv', text: b.current_version })]));
+    if (ds.length) ['文档', '图片', '音频', '视频', '代码'].forEach(function (t) {
+      var g = ds.filter(function (d) { return d.type === t; }); if (!g.length) return;
+      dk.push(h('h4', { class: 'dg' }, [icon(t), t + ' ' + g.length]));
+      dk.push(h('ul', { class: 'dlist' }, g.map(function (d) { if (d.private) return h('li', { class: 'priv' }, [h('span', { text: '已交付 · ' + d.type + ' · 私有' }, []), h('small', { class: 'muted', text: (d.created_at ? d.created_at.slice(5) : '日期未知') + (d.version ? ' · ' + d.version : '') })]);
+        return h('li', null, [h('span', null, [d.title, d.version ? h('span', { class: 'lv', text: d.version }) : null]), h('small', { class: 'muted', text: d.created_at ? d.created_at.slice(5) : '日期未知' }),
+        d.drive_url ? driveLink(d.drive_url, '在 Google Drive 打开') : h('span', { class: 'drive idle', text: '已交付，查看入口待同步' })]); })));
+    });
+    else dk.push(pending('暂无公开交付物。'));
+    if (b.private_deliverables) dk.push(h('p', { class: 'muted', text: '其中 ' + b.private_deliverables + ' 项为私有：公开页不显示标题和链接，请从 Drive 子夹查看。' }));
+    body.appendChild(sec('交付物与版本', dk));
+    // 4. evolution
+    var ev = b.evolution_log || [];
+    body.appendChild(sec('进化记录', [ev.length ? h('ol', { class: 'tl' }, ev.map(function (x) { return h('li', null, [h('span', { class: 'when', text: (x.date || '日期未知').slice(5) }), h('br'),
+      h('b', { text: (x.from_version || '?') + ' → ' + (x.to_version || '?') }), x.reason ? ' ' + x.reason : '', x.changes.length ? h('ul', { class: 'gap' }, x.changes.map(function (c) { return h('li', { text: c }); })) : null,
+      h('small', { class: 'muted', text: x.has_evidence ? '有证据' : '无证据' })]); })) : pending('暂无记录：bot 发布新版本并写入 evolution_log 后，这里按「上一版 → 下一版」串成时间线。')]));
+    // 5. benchmarks
+    var bm = b.benchmarks || [];
+    body.appendChild(sec('每级对标标杆', [bm.length ? h('ul', { class: 'bm' }, bm.map(function (x) { return h('li', null, [h('span', { class: 'lv', text: x.level }), ' ',
+      x.level_name ? h('span', { text: x.level_name + ' · ' }) : null, !x.name ? h('span', { class: 'drive idle', text: '人选待写入' }) : x.url ? h('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer', text: x.name + ' ↗' }) : h('span', { text: x.name }), x.verified ? null : h('span', { class: 'badge s-na', text: '未核实' }), x.pending_owner_confirm ? h('span', { class: 'badge s-warn', text: '待确认' }) : null, x.single_scope ? h('small', { class: 'muted', text: ' 范围：' + x.single_scope }) : null,
+      x.basis ? h('small', { class: 'muted', text: ' ' + x.basis }) : null, x.dimensions.length ? h('small', { class: 'muted', text: ' · 维度：' + x.dimensions.join('、') }) : null]); })) : pending('标杆待配置bot 写入。')]));
+  }
+  function renderSingles(b, body) {
+    var st = b.single_techniques || []; if (!st.length) return;
+    body.appendChild(sec('单项借鉴', [h('ul', { class: 'bm' }, st.map(function (x) { return h('li', null, [
+      !x.name ? h('span', { class: 'drive idle', text: '待写入' }) : x.url ? h('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer', text: x.name + ' ↗' }) : h('b', { text: x.name }),
+      x.verified ? null : h('span', { class: 'badge s-na', text: '未核实' }), x.technique ? h('span', { text: ' ' + x.technique }) : null, x.basis ? h('small', { class: 'muted', text: ' ' + x.basis }) : null]); }))]));
+  }
+  function renderIterSummary() {
+    var c = L.content(data.bots), n = { has: 0, run: 0, done: 0, block: 0 };
+    c.forEach(function (b) { var it = b.iteration_directions || []; if (it.length) n.has++; it.forEach(function (x) { if (x.status === '进行中') n.run++; else if (x.status === '已交付') n.done++; else if (x.status === '受阻') n.block++; }); });
+    var box = clear($('iter-sum'));
+    box.appendChild(h('span', null, [h('b', { class: 'num', text: n.has + '/' + c.length }), ' 个已自提方向']));
+    box.appendChild(h('span', null, ['方向：进行中 ', h('b', { class: 'num', text: String(n.run) }), ' · 已交付 ', h('b', { class: 'num', text: String(n.done) }), ' · 受阻 ', h('b', { class: 'num', text: String(n.block) })]));
+    box.appendChild(h('span', { class: 'muted', text: (c.length - n.has) + ' 个待自提' }));
+    var root = clear($('drive-root')); root.appendChild(driveLink(data.drive_root_url, '私域交付物（Google Drive）'));
+  }
   // v2.1: milestones are derived only from real history snapshots; with no change they render a compact "lights up when" row.
   function renderMilestones() {
     var hist = data.history || [], ups = [], downs = [];
@@ -180,6 +261,13 @@
     });
     if (ups.length && !reduce) { var hero = document.querySelector('.ms-up'); hero && hero.classList.add('celebrate'); }
   }
+  function cardQuest(b) {
+    var q = quest(b), it = (b.iteration_directions || []).length;
+    return h('span', { class: 'cq' }, [
+      q.total ? h('span', { class: 'cq-q' }, [bar(Math.round(100 * q.done / q.total), '距下一级 ' + q.done + '/' + q.total), h('small', { text: '还差 ' + q.left + ' 项' })]) : h('small', { class: 'muted', text: '通关任务待写入' }),
+      h('span', { class: 'tag' + (it ? '' : ' idle'), text: it ? '迭代 ' + it + ' 项' : '待自提' }),
+      h('span', { class: 'tag' + (b.drive_folder_url ? '' : ' idle'), text: b.drive_folder_url ? 'Drive' : 'Drive 待建' })]);
+  }
   function renderList(agg) {
     var rows = L.filterBots(L.content(data.bots), state), list = clear($('list'));
     list.removeAttribute('aria-busy');
@@ -195,9 +283,9 @@
     rows.forEach(function (b, i) {
       list.appendChild(h('button', { type: 'button', class: 'row card lv' + Math.min(b.level, 5), 'data-bot': b.name, style: '--i:' + Math.min(i, 12) + ';view-transition-name:c' + slug(b.name),
         onclick: function () { setState({ bot: b.name }); } }, [
-        h('span', { class: 'card-top' }, [avatar(b, 'm'), h('span', { class: 'lvl', text: 'L' + b.level })]),
+        h('span', { class: 'card-top' }, [avatar(b, 'm'), h('span', { class: 'lvl', text: 'Lv ' + b.level })]),
         h('span', { class: 'name', text: b.name }), h('span', { class: 'role', text: b.role || '—' }),
-        xpBar(b),
+        xpBar(b), cardQuest(b),
         h('span', { class: 'card-foot' }, [h('span', { class: 'out', text: outText(b) }), h('span', { class: 'badge ' + STATUS_CLASS[b.status] }, [b.status])])
       ]));
     });
@@ -250,6 +338,7 @@
       tl.appendChild(h('li', { class: i === 0 ? 'now' : '' }, [h('span', { class: 'when', text: x.date.slice(5) + (x.kind === 'baseline' ? ' · 基线日' : '') }), h('br'),
         lv == null ? '当天不在名录' : 'Level ' + lv + (x.kind === 'baseline' ? '，起点' : '')]));
     });
+    if (!L.isOps(b)) { renderDetailV21(b, body); renderSingles(b, body); } else body.appendChild(sec('交付物', [driveLink(b.drive_folder_url, '该 bot 的 Drive 子夹')]));
     body.appendChild(h('section', { class: 'sec' }, [h('h3', { text: '等级时间线' }), hist.length ? tl : h('p', { class: 'muted', text: '暂无快照' })]));
     if (vt) { document.querySelector('.drawer-inner').style.viewTransitionName = vt; var da = body.querySelector('.av'); if (da) da.style.viewTransitionName = 'sel-av'; }
     if (!dlg.open) { if (!lastFocus || !lastFocus.getAttribute || lastFocus.getAttribute('data-bot') !== b.name) lastFocus = document.activeElement; dlg.showModal(); }
@@ -274,7 +363,7 @@
         var err = L.validate(d); if (err) throw new Error(err);
         data = d; maxOut = Math.max(1, Math.max.apply(null, d.bots.map(function (b) { return b.outputs_count || 0; }).concat([0])));
         $('updated').textContent = '数据更新于 ' + L.fmtUtc8(d.updated_at) + ' · 每 5 分钟自动刷新';
-        renderBaseline(); renderTrajectory(); renderMilestones(); render(); renderRank();
+        renderBaseline(); renderTrajectory(); renderMilestones(); renderIterSummary(); render(); renderRank();
       })
       .catch(function (e) {
         $('updated').textContent = data ? '刷新失败，显示的是上次数据' : '数据不可用';
