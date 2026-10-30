@@ -20,7 +20,7 @@
   }
   function clear(el) { while (el.firstChild) el.removeChild(el.firstChild); return el; }
   function outText(b) {
-    if (!b.outputs_count) return '今日暂无产出';
+    if (!b.outputs_count) return '今日暂无登记产出';
     var t = Object.keys(b.output_types || {}).map(function (k) { return k + ' ' + b.output_types[k]; }).join('、');
     return t || (b.outputs_count + ' 件');
   }
@@ -61,10 +61,12 @@
   }
   var maxOut = 1;
   function xpBar(b) {
-    var pct = Math.round(100 * (b.outputs_count || 0) / maxOut);
-    return h('span', { class: 'xp', title: '条长 = 今日产出件数 ÷ 全员当日最高件数（' + maxOut + '）。不是升级进度，等级只由 bot manager 调整。' }, [
-      h('span', { class: 'xp-track' }, [h('span', { class: 'xp-fill', style: '--p:' + pct / 100 })]),
-      h('span', { class: 'xp-n num', text: (b.outputs_count || 0) + ' 件' })]);
+    // Not a progress bar: dot count of today's outputs + cumulative deliverables (public + private). Level progress = Lv + 还差 X 项 only.
+    var n = b.outputs_count || 0, tot = (b.deliverables || []).length, dots = h('span', { class: 'dots', 'aria-hidden': 'true' });
+    for (var i = 0; i < Math.min(n, 8); i++) dots.appendChild(h('i'));
+    return h('span', { class: 'cnt', title: '圆点 = 今日产出件数（最多画 8 个）；累计交付含私有项。不是等级进度。' }, [
+      h('span', { class: 'cnt-k', text: '今日产出' }), n ? dots : null, h('span', { class: 'num', text: n + ' 件' }),
+      h('span', { class: 'cnt-k cnt-sep', text: '累计交付' }), h('span', { class: 'num', text: tot + ' 件' })]);
   }
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function countUp(el, to) {
@@ -191,6 +193,12 @@
       sbd.note ? h('p', { class: 'muted', text: sbd.note }) : null] : [pending('分项分待配置bot 写入（维度与满分由等级标准文件定义）。')];
     qk.push(h('details', { class: 'fold' }, [h('summary', { text: '评分口径' })].concat(sbKids)));
     body.appendChild(sec('升级任务', qk));
+    // 1b. north star contribution (content bots only; ops bots have null)
+    var ns = b.north_star_dimension_progress;
+    if (ns && typeof ns === 'object') body.appendChild(sec('北极星贡献', [h('dl', { class: 'dl ns-dl' }, [].concat.apply([], [['quality', '质感'], ['story', '故事性'], ['rhythm', '节奏']].map(function (d) {
+      var v = ns[d[0]];
+      return [h('dt', { text: d[1] + ' ' + d[0] }), v ? h('dd', null, [v.text ? v.text : h('span', { class: 'ns-ev', text: '有证据' }), v.text && v.has_evidence ? h('small', { class: 'muted', text: ' · 有证据' }) : null]) : h('dd', null, [h('span', { class: 'drive idle', text: '暂无数据' })])];
+    })))]));
     // 2. iteration
     var it = b.iteration_directions || [], ik;
     if (it.length) { ik = h('ol', { class: 'tl it' }); it.forEach(function (x) { ik.appendChild(h('li', { class: 'it-' + (ITER_CLASS[x.status] || 's-na') }, [
@@ -206,8 +214,8 @@
       var g = ds.filter(function (d) { return d.type === t; }); if (!g.length) return;
       dk.push(h('h4', { class: 'dg' }, [icon(t), t + ' ' + g.length]));
       dk.push(h('ul', { class: 'dlist' }, g.map(function (d) { if (d.private) return h('li', { class: 'priv' }, [h('span', { text: '已交付 · ' + d.type + ' · 私有' }, []), h('small', { class: 'muted', text: (d.created_at ? d.created_at.slice(5) : '日期未知') + (d.version ? ' · ' + d.version : '') })]);
-        return h('li', null, [h('span', null, [d.title, d.version ? h('span', { class: 'lv', text: d.version }) : null]), h('small', { class: 'muted', text: d.created_at ? d.created_at.slice(5) : '日期未知' }),
-        d.drive_url ? driveLink(d.drive_url, '在 Google Drive 打开') : h('span', { class: 'drive idle', text: '已交付，查看入口待同步' })]); })));
+        return h('li', null, [h('span', null, ['已交付 · ' + d.type + ' · ', d.title, d.version ? h('span', { class: 'lv', text: d.version }) : null]), h('small', { class: 'muted', text: d.created_at ? d.created_at.slice(5) : '日期未知' }),
+        h('span', { class: 'drive idle', text: '文件入口请从子夹进入（需登录唯一的 Google 账号）' })]); })));
     });
     else dk.push(pending('暂无公开交付物。'));
     if (b.private_deliverables) dk.push(h('p', { class: 'muted', text: '其中 ' + b.private_deliverables + ' 项为私有：公开页不显示标题和链接，请从 Drive 子夹查看。' }));
@@ -228,6 +236,11 @@
     body.appendChild(sec('单项借鉴', [h('ul', { class: 'bm' }, st.map(function (x) { return h('li', null, [
       !x.name ? h('span', { class: 'drive idle', text: '待写入' }) : x.url ? h('a', { href: x.url, target: '_blank', rel: 'noopener noreferrer', text: x.name + ' ↗' }) : h('b', { text: x.name }),
       x.verified ? null : h('span', { class: 'badge s-na', text: '未核实' }), x.technique ? h('span', { text: ' ' + x.technique }) : null, x.basis ? h('small', { class: 'muted', text: ' ' + x.basis }) : null]); }))]));
+  }
+  function renderNorthStar() {
+    var el = $('north-star'); if (!el) return;
+    if (data.north_star) { clear(el).appendChild(h('span', { class: 'ns-k', text: '北极星' })); el.appendChild(document.createTextNode(' ' + data.north_star)); el.hidden = false; }
+    else el.hidden = true;
   }
   function renderIterSummary() {
     var c = L.content(data.bots), n = { has: 0, run: 0, done: 0, block: 0 };
@@ -363,7 +376,7 @@
         var err = L.validate(d); if (err) throw new Error(err);
         data = d; maxOut = Math.max(1, Math.max.apply(null, d.bots.map(function (b) { return b.outputs_count || 0; }).concat([0])));
         $('updated').textContent = '数据更新于 ' + L.fmtUtc8(d.updated_at) + ' · 每 5 分钟自动刷新';
-        renderBaseline(); renderTrajectory(); renderMilestones(); renderIterSummary(); render(); renderRank();
+        renderBaseline(); renderTrajectory(); renderMilestones(); renderIterSummary(); renderNorthStar(); render(); renderRank();
       })
       .catch(function (e) {
         $('updated').textContent = data ? '刷新失败，显示的是上次数据' : '数据不可用';

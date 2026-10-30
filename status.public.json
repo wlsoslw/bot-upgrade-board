@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_at": "2026-10-30T22:45:00+08:00",
+ "updated_at": "2026-10-30T22:56:00+08:00",
  "baseline_date": "2026-10-30",
  "summary": {
   "total": 18,
@@ -16,6 +16,7 @@
    "不适用": 0
   }
  },
+ "north_star": "视频产出越来越有电影感，最终形成一个同时有质感、故事性和好节奏的产品（质感、故事性、节奏三个维度缺一不可）。第一优先级，所有 bot 的迭代与评估向它对齐。",
  "drive_root_url": "https://drive.google.com/drive/folders/1FBIBNss3xkn4Oj3byLoSSgyYmTfwaNoI",
  "bots": [
   {
@@ -43,7 +44,8 @@
    "benchmarks": [],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": ""
+   "drive_folder_url": "",
+   "north_star_dimension_progress": null
   },
   {
    "name": "编程Bot",
@@ -201,7 +203,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1hsbThdzdizURa3bJzVFEC4LYdQ-Nn_Rv"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1hsbThdzdizURa3bJzVFEC4LYdQ-Nn_Rv",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "画布Bot",
@@ -241,16 +248,14 @@
      "private": false,
      "type": "文档",
      "version": "v1",
-     "created_at": "2026-10-30 20:06",
-     "drive_url": "https://drive.google.com/file/d/1DwlH9QRS_yXSyZc2W-5zll2Iz5BD2z9m/view"
+     "created_at": "2026-10-30 20:06"
     },
     {
      "title": "工具回归记录",
      "private": false,
      "type": "文档",
      "version": null,
-     "created_at": "2026-10-30 20:06",
-     "drive_url": "https://drive.google.com/file/d/1s-6c1e12XsQ6WuqhyWvb9QO9SA66E3nS/view"
+     "created_at": "2026-10-30 20:06"
     },
     {
      "private": true,
@@ -380,7 +385,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1W875Ry53uASfhn9wM3UPsy_haAFtDvII"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1W875Ry53uASfhn9wM3UPsy_haAFtDvII",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "AI资讯bot",
@@ -548,7 +558,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1OlD7Lb9zjH2fH_9kMOklKo52QTGuyYQS"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1OlD7Lb9zjH2fH_9kMOklKo52QTGuyYQS",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "交易bot",
@@ -746,7 +761,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ifsTAbwtPPF6tF_Jfs_OL0uVThuWwx5G"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1ifsTAbwtPPF6tF_Jfs_OL0uVThuWwx5G",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "社媒运营bot",
@@ -920,7 +940,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ZnKcRh723GZL0FfzY_Z2kHdc1awrvbk7"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1ZnKcRh723GZL0FfzY_Z2kHdc1awrvbk7",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "电影脚本bot",
@@ -1135,7 +1160,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/14sTKqpUbit-Rpds3H-QjpNHQBgoKVdi4"
+   "drive_folder_url": "https://drive.google.com/drive/folders/14sTKqpUbit-Rpds3H-QjpNHQBgoKVdi4",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "layoutbot",
@@ -1181,8 +1211,7 @@
      "private": false,
      "type": "文档",
      "version": null,
-     "created_at": "2026-10-30 20:04",
-     "drive_url": "https://drive.google.com/file/d/1l8e6oETzjR1xqsuzwqB7V1OIwAYPQy06/view"
+     "created_at": "2026-10-30 20:04"
     },
     {
      "private": true,
@@ -1324,7 +1353,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ULNLirbQUXu3Nu_SkP3nlxbfuV5eNkMU"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1ULNLirbQUXu3Nu_SkP3nlxbfuV5eNkMU",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "GameArt",
@@ -1491,7 +1525,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1YuTjPygcHXqTVAK3CnGFzPrn8ngRxZqr"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1YuTjPygcHXqTVAK3CnGFzPrn8ngRxZqr",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "导演bot",
@@ -2001,7 +2040,12 @@
     }
    ],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/11_6WAx4EGX2fEt70NrxxgkftCWAXznUL"
+   "drive_folder_url": "https://drive.google.com/drive/folders/11_6WAx4EGX2fEt70NrxxgkftCWAXznUL",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "剪辑bot",
@@ -2175,7 +2219,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1PiMYlj0w4ZUFsIfganyXsYnJ2tYRYcBm"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1PiMYlj0w4ZUFsIfganyXsYnJ2tYRYcBm",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "声音设计bot",
@@ -2573,7 +2622,12 @@
     "金球奖",
     "奥斯卡"
    ],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1Avt_Ym5EPoqI4oDRBTQXxkF1tx6zGVFZ"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1Avt_Ym5EPoqI4oDRBTQXxkF1tx6zGVFZ",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "调色bot",
@@ -2730,7 +2784,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1JtPDbBYIFjRKUfNaYUQWmc6beL0X9cl9"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1JtPDbBYIFjRKUfNaYUQWmc6beL0X9cl9",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "制片bot",
@@ -2757,7 +2816,8 @@
    "benchmarks": [],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": ""
+   "drive_folder_url": "",
+   "north_star_dimension_progress": null
   },
   {
    "name": "表格bot",
@@ -2784,7 +2844,8 @@
    "benchmarks": [],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": ""
+   "drive_folder_url": "",
+   "north_star_dimension_progress": null
   },
   {
    "name": "文秘Bot",
@@ -2811,7 +2872,8 @@
    "benchmarks": [],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": ""
+   "drive_folder_url": "",
+   "north_star_dimension_progress": null
   },
   {
    "name": "英语Bot",
@@ -2983,7 +3045,12 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1VF8qhfGysUPdczYrxJv8PcSiwW1k7_fY"
+   "drive_folder_url": "https://drive.google.com/drive/folders/1VF8qhfGysUPdczYrxJv8PcSiwW1k7_fY",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
   },
   {
    "name": "phone bot",
@@ -3008,7 +3075,8 @@
    "benchmarks": [],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": ""
+   "drive_folder_url": "",
+   "north_star_dimension_progress": null
   }
  ],
  "history": [

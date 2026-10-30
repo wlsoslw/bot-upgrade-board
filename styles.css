@@ -262,3 +262,13 @@ h2{font-size:var(--t-l);font-weight:600}
 .sec h3 small{font-weight:400;font-size:var(--t-xs)}
 :root[data-theme=light]{--l1:#166534}@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--l1:#166534}}
 .qlist b{white-space:nowrap}.qlist li>small{flex:none}
+
+/* v2.1 north star */
+.ns{margin:.25rem 0 1rem;padding:.5rem .75rem;border-left:3px solid var(--accent,#22c55e);background:color-mix(in srgb,currentColor 5%,transparent);border-radius:6px;font-size:.9rem;line-height:1.6;max-width:62ch}
+.ns-k{font-weight:700;margin-right:.25rem}
+.ns-dl dd{margin:0 0 .35rem}
+
+.cnt{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem;font-size:.75rem;margin:.4rem 0}
+.cnt-k{color:var(--muted,#888)}.cnt-sep{margin-left:.5rem}
+.dots{display:inline-flex;gap:2px}.dots i{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.7}
+.ns-ev{font-weight:600}
