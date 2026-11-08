@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "updated_at": "2026-11-07T09:36:00+08:00",
+ "updated_at": "2026-11-08T09:30:00+08:00",
  "baseline_date": "2026-10-30",
  "summary": {
   "total": 16,
@@ -10,8 +10,8 @@
    "L0": 13
   },
   "status_counts": {
-   "已交付": 12,
-   "进行中": 1,
+   "已交付": 1,
+   "进行中": 12,
    "逾期": 0,
    "不适用": 0
   }
@@ -24,7 +24,7 @@
    "role": "配置管理",
    "group": "ops",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 1,
    "output_types": {
     "文档": 1
@@ -52,7 +52,7 @@
    "role": "编程",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 5,
    "output_types": {
     "文档": 5
@@ -241,7 +241,7 @@
    "role": "画布操作",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -423,7 +423,7 @@
    "role": "AI 资讯",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 1,
    "output_types": {
     "文档": 1
@@ -596,7 +596,7 @@
    "role": "自动化",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -799,7 +799,7 @@
    "role": "社媒运营",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -978,7 +978,7 @@
    "role": "剧本与分镜",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -1421,7 +1421,7 @@
    "role": "GameArt/美术",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 1,
    "output_types": {
     "文档": 1
@@ -1593,7 +1593,7 @@
    "role": "导演/影视化",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -2148,7 +2148,7 @@
    "role": "后期剪辑",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -2327,7 +2327,7 @@
    "role": "声音设计",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -2892,7 +2892,7 @@
    "role": "制片",
    "group": "ops",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 1,
    "output_types": {
     "文档": 1
@@ -2920,7 +2920,7 @@
    "role": "文秘",
    "group": "ops",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 1,
    "output_types": {
     "文档": 1
@@ -2948,7 +2948,7 @@
    "role": "Bot",
    "group": "content",
    "level": 0,
-   "status": "已交付",
+   "status": "进行中",
    "outputs_count": 2,
    "output_types": {
     "文档": 2
@@ -3306,6 +3306,40 @@
    "status_counts": {
     "已交付": 12,
     "进行中": 1,
+    "逾期": 0,
+    "不适用": 0
+   },
+   "levels": {
+    "配置bot": 0,
+    "编程Bot": 0,
+    "画布Bot": 0,
+    "AI资讯bot": 0,
+    "交易bot": 0,
+    "社媒运营bot": 0,
+    "电影脚本bot": 0,
+    "layoutbot": 0,
+    "GameArt": 0,
+    "导演bot": 0,
+    "剪辑bot": 0,
+    "声音设计bot": 0,
+    "调色bot": 0,
+    "制片bot": 0,
+    "文秘Bot": 0,
+    "学习bot": 0
+   }
+  },
+  {
+   "date": "2026-11-08",
+   "kind": "daily",
+   "total": 16,
+   "content_total": 13,
+   "ops_count": 3,
+   "level_counts": {
+    "L0": 13
+   },
+   "status_counts": {
+    "已交付": 1,
+    "进行中": 12,
     "逾期": 0,
     "不适用": 0
    },
