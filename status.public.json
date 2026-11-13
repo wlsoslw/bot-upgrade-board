@@ -1,17 +1,17 @@
 {
  "schema": 1,
- "updated_at": "2026-11-12T09:47:00+08:00",
+ "updated_at": "2026-11-13T09:42:00+08:00",
  "baseline_date": "2026-10-30",
  "summary": {
-  "total": 16,
-  "content_total": 13,
-  "ops_count": 3,
+  "total": 4,
+  "content_total": 4,
+  "ops_count": 0,
   "level_counts": {
-   "L0": 13
+   "L0": 4
   },
   "status_counts": {
-   "已交付": 12,
-   "进行中": 1,
+   "已交付": 4,
+   "进行中": 0,
    "逾期": 0,
    "不适用": 0
   }
@@ -19,1575 +19,6 @@
  "north_star": "视频产出越来越有电影感，最终形成一个同时有质感、故事性和好节奏的产品（质感、故事性、节奏三个维度缺一不可）。第一优先级，所有 bot 的迭代与评估向它对齐。",
  "drive_root_url": "https://drive.google.com/drive/folders/1FBIBNss3xkn4Oj3byLoSSgyYmTfwaNoI",
  "bots": [
-  {
-   "name": "配置bot",
-   "role": "配置管理",
-   "group": "ops",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 1,
-   "output_types": {
-    "文档": 1
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [],
-   "self_iteration_last_update": null,
-   "current_version": null,
-   "deliverables": [],
-   "private_deliverables": 0,
-   "evolution_log": [],
-   "current_level": "不适用",
-   "level_progress": [],
-   "next_level_gap": [],
-   "score_breakdown": {},
-   "benchmarks": [],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "",
-   "north_star_dimension_progress": null
-  },
-  {
-   "name": "编程Bot",
-   "role": "编程",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 5,
-   "output_types": {
-    "文档": 5
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "canvas-tool 回归与维护：画布Bot 反馈问题先加用例再修",
-     "status": "进行中",
-     "progress": 50,
-     "next_physical_deliverable": "可运行的 canvas-tool 回归测试脚本及运行记录",
-     "last_update": "2026-10-30 20:27",
-     "has_evidence": true
-    },
-    {
-     "direction": "UE/Maya 工具开源先行评估+最小验证",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "可运行的 Maya 相机/动画 FBX 批量导出脚本最小验证版",
-     "last_update": "2026-10-30 20:27",
-     "has_evidence": true
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 22:31",
-   "current_version": "v2.1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v2.1",
-     "created_at": "2026-10-30 20:27"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-11-02 20:27"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-11-02 22:05"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-11-02 22:55"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-11-03 08:12"
-    }
-   ],
-   "private_deliverables": 5,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "P-1",
-     "task": "看板仓库按 OpenSSF passing 标准自查 ≥10 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "P-2",
-     "task": "Maya/UE 第一件小工具（实物，需唯一选）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "P-3",
-     "task": "单测 ≥10 且可复跑",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "P-4",
-     "task": "发布说明（非 git log）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "P-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "P-1 未完成：看板仓库按 OpenSSF passing 标准自查 ≥10 条",
-    "P-2 未完成：Maya/UE 第一件小工具（实物，需唯一选）",
-    "P-3 未完成：单测 ≥10 且可复跑",
-    "P-4 未完成：发布说明（非 git log）",
-    "P-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待BM评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "OpenSSF Best Practices passing",
-     "url": "https://www.bestpractices.dev/en/criteria/0",
-     "basis": "原文：MUST use at least one automated test suite；unique version identifier",
-     "dimensions": [
-      "测试",
-      "版本",
-      "发布说明"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "OpenSSF Best Practices Silver",
-     "url": "https://www.bestpractices.dev/en/criteria/1",
-     "basis": "未读，未核实",
-     "dimensions": [],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "OpenSSF Scorecard",
-     "url": "https://github.com/ossf/scorecard",
-     "basis": "原文：Each individual check returns a score of 0 to 10",
-     "dimensions": [
-      "分项打分"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1hsbThdzdizURa3bJzVFEC4LYdQ-Nn_Rv",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "画布Bot",
-   "role": "画布操作",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "canvas-tool 回归复测与 health 检查",
-     "status": "进行中",
-     "progress": 50,
-     "next_physical_deliverable": "可复跑的回归复测记录与截图",
-     "last_update": "2026-10-30 20:06",
-     "has_evidence": true
-    },
-    {
-     "direction": "按模板整理已有节点并补手册/坑清单",
-     "status": "进行中",
-     "progress": 40,
-     "next_physical_deliverable": "画布内按模板整理后的节点截图（可打开图片）",
-     "last_update": "2026-10-30 20:06",
-     "has_evidence": true
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:06",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "title": "画布节点模板文档",
-     "private": false,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "title": "工具回归记录",
-     "private": false,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:06"
-    }
-   ],
-   "private_deliverables": 1,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "V-1",
-     "task": "节点模板 v1 落 1 个镜头全链路（不扣费）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "V-2",
-     "task": "迭代台账 ≥10 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "V-3",
-     "task": "回归复测通过",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "V-4",
-     "task": "实物：节点 ID 清单 + 截图",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "V-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "V-1 未完成：节点模板 v1 落 1 个镜头全链路（不扣费）",
-    "V-2 未完成：迭代台账 ≥10 条",
-    "V-3 未完成：回归复测通过",
-    "V-4 未完成：实物：节点 ID 清单 + 截图",
-    "V-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "ComfyUI（节点式工作流）",
-     "url": "https://github.com/Comfy-Org/ComfyUI",
-     "basis": "GitHub API 2026-10-30 23:15 读：stargazers_count 144126，GPL-3.0",
-     "dimensions": [
-      "节点命名",
-      "工作流可复现",
-      "版本管理"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "ComfyUI 工作流可复现标准（同仓库，导出 JSON 可重跑）",
-     "url": "https://github.com/Comfy-Org/ComfyUI",
-     "basis": "同上（仓库描述 graph/nodes interface）",
-     "dimensions": [
-      "同一工作流两次重跑一致",
-      "参数留痕"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Runway AI Film Festival 入围/获奖作品",
-     "url": "https://en.wikipedia.org/wiki/Runway_company",
-     "basis": "条目原文：AI Film Festival (AIFF) for films created using artificial…；节庆存在，具体获奖作品未选，未核实",
-     "dimensions": [
-      "全链路成片质量"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1W875Ry53uASfhn9wM3UPsy_haAFtDvII",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "AI资讯bot",
-   "role": "AI 资讯",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 1,
-   "output_types": {
-    "文档": 1
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "当天采纳项挑 1 条做最小验证",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "verifications 文件落盘（原文完成定义）",
-     "last_update": "2026-10-30 20:04",
-     "has_evidence": true
-    },
-    {
-     "direction": "缺档自检并补档（榜单、日报）",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "文件齐全（原文完成定义）",
-     "last_update": null,
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:04",
-   "current_version": null,
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    }
-   ],
-   "private_deliverables": 2,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "I-1",
-     "task": "日报按规则 7 四段格式 ≥5 篇",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "I-2",
-     "task": "每篇下游派单回链 ≥1",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "I-3",
-     "task": "Notion backlog 补齐",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "I-4",
-     "task": "实物：可打开的周报页",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "I-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "I-1 未完成：日报按规则 7 四段格式 ≥5 篇",
-    "I-2 未完成：每篇下游派单回链 ≥1",
-    "I-3 未完成：Notion backlog 补齐",
-    "I-4 未完成：实物：可打开的周报页",
-    "I-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待BM评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "The Batch（DeepLearning.AI 周刊）",
-     "url": "https://www.deeplearning.ai/the-batch/",
-     "basis": "页面标题读到 The Batch | DeepLearning.AI | AI News & Insights；权威依据为机构出品，无奖项（存在性已核实）",
-     "dimensions": [
-      "每条新闻的「为什么重要」",
-      "篇幅控制"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "State of AI Report",
-     "url": "https://www.stateof.ai/",
-     "basis": "首页读到 State of AI Report（存在性已核实）",
-     "dimensions": [
-      "年度趋势",
-      "可检验的预测并次年回评"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "State of AI Report 预测回评纪律",
-     "url": "https://www.stateof.ai/",
-     "basis": "「上年预测逐条打分」做法本轮未读到原文，未核实",
-     "dimensions": [
-      "预测命中率"
-     ],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1OlD7Lb9zjH2fH_9kMOklKo52QTGuyYQS",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "交易bot",
-   "role": "自动化",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "8 周学习队列：每周一项可验收物，最终合并为否决规则清单 v2",
-     "status": "进行中",
-     "progress": 10,
-     "next_physical_deliverable": "否决规则清单 v2（合并8周所得，标注已覆盖/冲突/缺口）",
-     "last_update": "2026-10-30 20:04",
-     "has_evidence": true
-    },
-    {
-     "direction": "用决策日志模板回填 10-26 至 11-06 每日记录",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "（内容含敏感词，公开页已隐去）",
-     "last_update": null,
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:04",
-   "current_version": "v0",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v0",
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    }
-   ],
-   "private_deliverables": 3,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "T-1",
-     "task": "每交易日 选股→下单→止损止盈→复盘 全流程留痕 ≥10 日",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "T-2",
-     "task": "（内容含敏感词，公开页已隐去）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "T-3",
-     "task": "空仓必须附证据",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "T-4",
-     "task": "（内容含敏感词，公开页已隐去）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "T-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "T-1 未完成：每交易日 选股→下单→止损止盈→复盘 全流程留痕 ≥10 日",
-    "（内容含敏感词，公开页已隐去）",
-    "T-3 未完成：空仓必须附证据",
-    "（内容含敏感词，公开页已隐去）",
-    "T-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待BM评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "最大回撤（风险度量）",
-     "url": "https://en.wikipedia.org/wiki/Drawdown_economics",
-     "basis": "条目引文献 Maximum Drawdown as a Risk Measure",
-     "dimensions": [
-      "每笔止损执行率",
-      "最大回撤"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "沪深300 指数作收益基准",
-     "url": "",
-     "basis": "未读指数官网原文，未核实",
-     "dimensions": [
-      "超额收益"
-     ],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Sharpe ratio（及 Sortino）",
-     "url": "https://en.wikipedia.org/wiki/Sharpe_ratio",
-     "basis": "条目读到 Sortino ratio 对照段",
-     "dimensions": [
-      "（内容含敏感词，公开页已隐去）"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "SPIVA（主动 vs 指数）",
-     "url": "https://www.spglobal.com/spdji/en/research-insights/spiva/",
-     "basis": "curl 403，未读，未核实",
-     "dimensions": [],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "（内容含敏感词，公开页已隐去）",
-     "url": "https://en.wikipedia.org/wiki/Kelly_criterion",
-     "basis": "条目原文：满凯利风险过大（not worth…）",
-     "dimensions": [
-      "（内容含敏感词，公开页已隐去）",
-      "分数凯利"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ifsTAbwtPPF6tF_Jfs_OL0uVThuWwx5G",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "社媒运营bot",
-   "role": "社媒运营",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "维护选题库：每周补 3 条并做撞车检查",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "选题库文件追加且每条有检索记录（原文完成定义）",
-     "last_update": "2026-10-30 20:07",
-     "has_evidence": false
-    },
-    {
-     "direction": "规则雷达：核实日报中未核实的规则链接",
-     "status": "进行中",
-     "progress": 20,
-     "next_physical_deliverable": "对标文件「未核实」表更新",
-     "last_update": "2026-10-30 20:06",
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:07",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:07"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:07"
-    }
-   ],
-   "private_deliverables": 3,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "M-1",
-     "task": "拆 ≥3 个 Shorty 获奖案例",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "M-2",
-     "task": "选题库 v1 对照缺口表",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "M-3",
-     "task": "草稿 ≥5 篇（不发布）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "M-4",
-     "task": "实物：配图样稿",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "M-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "M-1 未完成：拆 ≥3 个 Shorty 获奖案例",
-    "M-2 未完成：选题库 v1 对照缺口表",
-    "M-3 未完成：草稿 ≥5 篇（不发布）",
-    "M-4 未完成：实物：配图样稿",
-    "M-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Shorty Awards 获奖案例",
-     "url": "https://en.wikipedia.org/wiki/Shorty_Awards",
-     "basis": "条目：honor achievements in content creation on Twitter, Facebook, YouTube…（具体获奖案例未选）",
-     "dimensions": [
-      "钩子",
-      "形式"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Webby Awards 社媒类",
-     "url": "https://en.wikipedia.org/wiki/Webby_Awards",
-     "basis": "条目原文：Internet's highest honor（具体案例未选）",
-     "dimensions": [
-      "系列化",
-      "互动设计"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Cannes Lions 社媒/创意 Grand Prix",
-     "url": "https://en.wikipedia.org/wiki/Cannes_Lions",
-     "basis": "条目原文含 Grand Prix for its Mattel Scrabble campaign",
-     "dimensions": [
-      "创意策略与可衡量结果"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ZnKcRh723GZL0FfzY_Z2kHdc1awrvbk7",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "电影脚本bot",
-   "role": "剧本与分镜",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "每周 1 篇逐镜拆解",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "一个拆解文件加一条复盘（原文完成定义）",
-     "last_update": "2026-10-30 20:06",
-     "has_evidence": true
-    },
-    {
-     "direction": "用自检清单回查已出脚本的节奏",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "一张对照表（原文完成定义）",
-     "last_update": null,
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:07",
-   "current_version": "v2",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v2",
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:07"
-    }
-   ],
-   "private_deliverables": 3,
-   "evolution_log": [
-    {
-     "from_version": "v1",
-     "to_version": "v2",
-     "date": "2026-10-30 20:06",
-     "changes": [
-      "新增术语节",
-      "按场景条件给出各登场类型的适用与不适用"
-     ],
-     "reason": "堵住上一版在具体镜头上的歧义",
-     "has_evidence": true
-    }
-   ],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "S-1",
-     "task": "拆 Breaking Bad 与 Lost 试播集节拍表（每部 ≥10 个节拍）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "S-2",
-     "task": "自家最近一份剧本对照标杆缺口表 ≥5 项",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "S-3",
-     "task": "用 sw-scene-craft 改写 1 场并前后对照",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "S-4",
-     "task": "实物：可读的 Fountain/PDF 剧本稿，或实物计划",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "S-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "S-1 未完成：拆 Breaking Bad 与 Lost 试播集节拍表（每部 ≥10 个节拍）",
-    "S-2 未完成：自家最近一份剧本对照标杆缺口表 ≥5 项",
-    "S-3 未完成：用 sw-scene-craft 改写 1 场并前后对照",
-    "S-4 未完成：实物：可读的 Fountain/PDF 剧本稿，或实物计划",
-    "S-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待BM评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Breaking Bad",
-     "url": "https://en.wikipedia.org/wiki/Breaking_Bad",
-     "basis": "条目：Outstanding Drama Series in 2013 and 2014",
-     "dimensions": [
-      "试播集结构",
-      "人物欲望/阻碍",
-      "幕间钩子"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Lost",
-     "url": "https://en.wikipedia.org/wiki/Lost_TV_series",
-     "basis": "条目：Outstanding Drama Series（类别读到）",
-     "dimensions": [
-      "冷开场",
-      "悬念"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "The Walking Dead",
-     "url": "",
-     "basis": "未读到奖项原文，仅知名度，未核实",
-     "dimensions": [
-      "系列引擎"
-     ],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Chernobyl",
-     "url": "https://en.wikipedia.org/wiki/Chernobyl_miniseries",
-     "basis": "条目：Outstanding Writing for a Limited Series",
-     "dimensions": [
-      "信息释放",
-      "紧张度"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Parasite",
-     "url": "https://en.wikipedia.org/wiki/Parasite_2019_film",
-     "basis": "条目：Best Original Screenplay",
-     "dimensions": [
-      "结构反转",
-      "空间象征"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/14sTKqpUbit-Rpds3H-QjpNHQBgoKVdi4",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "layoutbot",
-   "role": "layout 预演",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "用 DeepSeek 额度做影视化复刻（与导演bot 联动）",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "一条经 DeepSeek 驱动的复刻短片/预演 + 联动记录",
-     "last_update": "2026-10-30 22:28",
-     "has_evidence": true
-    },
-    {
-     "direction": "把样例表 H1–H8 做成 CAM_* 灰盒并出 playblast",
-     "status": "进行中",
-     "progress": 40,
-     "next_physical_deliverable": "playblast+contact+QA 清单打勾（原文完成定义）",
-     "last_update": "2026-11-01 10:28",
-     "has_evidence": true
-    }
-   ],
-   "self_iteration_last_update": "2026-11-01 10:28",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "title": "运镜工具调研笔记",
-     "private": false,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:04"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-31 01:21"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-31 01:18"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-31 01:16"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-31 01:21"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-11-01 01:09"
-    }
-   ],
-   "private_deliverables": 7,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "Y-1",
-     "task": "3 机位×24/40/85mm 对比（.blend + playblast，实物）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "Y-2",
-     "task": "对照 Spider-Verse ≥5 维度缺口表",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "Y-3",
-     "task": "blender-previs-qa 六条硬规则逐条打勾记录",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "Y-4",
-     "task": "EXP-LD-01 盲评经导演bot 标「能直接用」≥1 镜",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "Y-5",
-     "task": "自提迭代方向 ≥1 条（DeepSeek 影视化复刻）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "Y-1 未完成：3 机位×24/40/85mm 对比（.blend + playblast，实物）",
-    "Y-2 未完成：对照 Spider-Verse ≥5 维度缺口表",
-    "Y-3 未完成：blender-previs-qa 六条硬规则逐条打勾记录",
-    "Y-4 未完成：EXP-LD-01 盲评经导演bot 标「能直接用」≥1 镜",
-    "Y-5 未完成：自提迭代方向 ≥1 条（DeepSeek 影视化复刻）"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Spider-Man: Into the Spider-Verse",
-     "url": "https://en.wikipedia.org/wiki/Spider-Man_Into_the_Spider-Verse",
-     "basis": "条目：Best Animated Feature",
-     "dimensions": [
-      "构图",
-      "相机运动"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Sprite Fright（Blender Studio）",
-     "url": "https://studio.blender.org/",
-     "basis": "本轮 grep 未读到，未核实",
-     "dimensions": [
-      "开放工程可拆"
-     ],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Dunkirk 空战调度",
-     "url": "https://en.wikipedia.org/wiki/Dunkirk_2017_film",
-     "basis": "条目含 Best Film Editing / Spitfire",
-     "dimensions": [
-      "地理关系"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Mad Max: Fury Road",
-     "url": "https://en.wikipedia.org/wiki/Mad_Max_Fury_Road",
-     "basis": "条目含 Best Film Editing 等",
-     "dimensions": [
-      "中心构图",
-      "追车动线"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1ULNLirbQUXu3Nu_SkP3nlxbfuV5eNkMU",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "GameArt",
-   "role": "GameArt/美术",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 1,
-   "output_types": {
-    "文档": 1
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "风格与造型锁定手册：补比例表、词汇表",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "手册新增文件落盘+手册变更日志（原文完成定义）",
-     "last_update": "2026-10-30 20:05",
-     "has_evidence": true
-    },
-    {
-     "direction": "造型比对请求出 audit",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "audit 文件+回链需求方（原文完成定义）",
-     "last_update": null,
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 22:08",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:05"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:05"
-    }
-   ],
-   "private_deliverables": 2,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "G-1",
-     "task": "拆 Hades 角色造型 ≥5 维度",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "G-2",
-     "task": "风格与造型锁定手册 v1 补比例表与词汇表",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "G-3",
-     "task": "为导演bot 载具一致性做 audit（联动 D-2）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "G-4",
-     "task": "实物：参考板图片",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "G-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "G-1 未完成：拆 Hades 角色造型 ≥5 维度",
-    "G-2 未完成：风格与造型锁定手册 v1 补比例表与词汇表",
-    "G-3 未完成：为导演bot 载具一致性做 audit（联动 D-2）",
-    "G-4 未完成：实物：参考板图片",
-    "G-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Hades",
-     "url": "https://en.wikipedia.org/wiki/Hades_video_game",
-     "basis": "条目：British Academy Games Award for Best Game",
-     "dimensions": [
-      "剪影辨识",
-      "配色锁定"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Elden Ring",
-     "url": "https://en.wikipedia.org/wiki/Elden_Ring",
-     "basis": "条目：Game of the Year",
-     "dimensions": [
-      "怪物造型语言"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Arcane",
-     "url": "https://en.wikipedia.org/wiki/Arcane_TV_series",
-     "basis": "条目含 Outstanding Animated Program",
-     "dimensions": [
-      "风格一致性"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1YuTjPygcHXqTVAK3CnGFzPrn8ngRxZqr",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
   {
    "name": "导演bot",
    "role": "导演/影视化",
@@ -2144,858 +575,70 @@
    }
   },
   {
-   "name": "剪辑bot",
-   "role": "后期剪辑",
+   "name": "编程Bot",
+   "role": "编程",
    "group": "content",
    "level": 0,
    "status": "已交付",
-   "outputs_count": 2,
+   "outputs_count": 5,
    "output_types": {
-    "文档": 2
+    "文档": 5
    },
    "has_evidence": true,
    "retro_today": false,
    "iteration_directions": [
     {
-     "direction": "J/L-cut 试验（3-B）",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "J/L-cut 前后对比的成片片段",
-     "last_update": null,
-     "has_evidence": false
-    },
-    {
-     "direction": "最近成片节奏诊断+自检",
+     "direction": "canvas-tool 回归与维护：画布Bot 反馈问题先加用例再修",
      "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "带诊断标注的复剪成片",
-     "last_update": "2026-10-30 20:05",
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:05",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:05"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:05"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:05"
-    }
-   ],
-   "private_deliverables": 3,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "E-1",
-     "task": "拆 Whiplash 一段（≥20 个剪切点表）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "E-2",
-     "task": "社媒短片首版成片对照缺口表 ≥5 项",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "E-3",
-     "task": "自检清单跑 1 次并修正版",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "E-4",
-     "task": "实物：安全预览视频",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "E-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "E-1 未完成：拆 Whiplash 一段（≥20 个剪切点表）",
-    "E-2 未完成：社媒短片首版成片对照缺口表 ≥5 项",
-    "E-3 未完成：自检清单跑 1 次并修正版",
-    "E-4 未完成：实物：安全预览视频",
-    "E-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Whiplash",
-     "url": "https://en.wikipedia.org/wiki/Whiplash_2014_film",
-     "basis": "条目：Best Film Editing",
-     "dimensions": [
-      "卡点",
-      "节奏"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "Mad Max: Fury Road",
-     "url": "https://en.wikipedia.org/wiki/Mad_Max_Fury_Road",
-     "basis": "条目：Best Film Editing",
-     "dimensions": [
-      "中心构图连续性",
-      "动作剪辑"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "Dunkirk",
-     "url": "https://en.wikipedia.org/wiki/Dunkirk_2017_film",
-     "basis": "条目：Best Film Editing",
-     "dimensions": [
-      "交叉剪辑"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1PiMYlj0w4ZUFsIfganyXsYnJ2tYRYcBm",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "声音设计bot",
-   "role": "声音设计",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "声音克隆能力调研（仅限已获授权的声音）",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "可播放的授权样本音频+可行性结论文档",
-     "last_update": null,
-     "has_evidence": false
-    },
-    {
-     "direction": "学习路径第 1–2 步：demo_v2、measure.sh",
-     "status": "进行中",
-     "progress": 30,
-     "next_physical_deliverable": "demo_v2 音频与可运行 measure.sh",
-     "last_update": "2026-10-30 20:06",
-     "has_evidence": false
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:08",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:07"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:06"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:08"
-    }
-   ],
-   "private_deliverables": 3,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "A-1",
-     "task": "按对标清单 L1 标杆拆 ≥2 部的电平/静默/分层表",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "A-2",
-     "task": "layer_demo_v2 6 个 wav（实物）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "A-3",
-     "task": "ebur128 对照 -23 LUFS ±1",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "A-4",
-     "task": "声音克隆可行性调研（仅已授权声音）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "A-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "A-1 未完成：按对标清单 L1 标杆拆 ≥2 部的电平/静默/分层表",
-    "A-2 未完成：layer_demo_v2 6 个 wav（实物）",
-    "A-3 未完成：ebur128 对照 -23 LUFS ±1",
-    "A-4 未完成：声音克隆可行性调研（仅已授权声音）",
-    "A-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Tetsuya Shibata",
-     "url": "https://en.wikipedia.org/wiki/Tetsuya_Shibata",
-     "basis": "Wikipedia 摘要：Capcom 二十余部作品作曲/声音总监，含 Capcom 动作游戏系列，负责 Capcom 系列 Tri 管弦录音组织。无最高舞台奖项记录。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Akihiko Narita",
-     "url": "https://en.wikipedia.org/wiki/Akihiko_Narita",
-     "basis": "Wikipedia：Capcom 作曲，参与Capcom 系列多作（含 MH World 合作）。无奖项记录。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Jesper Kyd",
-     "url": "https://en.wikipedia.org/wiki/Jesper_Kyd",
-     "basis": "Wikipedia 摘要：Hitman、Assassin's Creed、Borderlands 等配乐，管弦+合唱+电子音景。具体奖项本次未读，未核实。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Olivier Derivière",
-     "url": "https://en.wikipedia.org/wiki/Olivier_Deriviere",
-     "basis": "Wikipedia 摘要：Remember Me 获 2013 IFMCA 最佳游戏原创配乐（行业奖）。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Gary Rydstrom（以作品作实干对标）",
-     "url": "https://en.wikipedia.org/wiki/Gary_Rydstrom",
-     "basis": "Wikipedia 摘要：20 次奥斯卡提名、7 次获奖。按奖项本应属 L4，但 L4 名额给作曲；此处按唯一指示以其『怪物音效作品』作 L1 实操拆解对象，见待拍板点。",
-     "dimensions": [
-      "拟音与混音"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L1",
-     "level_name": "实干派",
-     "name": "Ben Burtt（以作品作实干对标）",
-     "url": "https://en.wikipedia.org/wiki/Ben_Burtt",
-     "basis": "Wikipedia 原文：4 座奥斯卡（其中 2 座特别成就奖）。具体年份未逐条核实。按奖项属 L4，此处作 L1 拆解对象。",
-     "dimensions": [
-      "拟音与混音"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "格莱美",
-     "name": "Austin Wintory",
-     "url": "https://en.wikipedia.org/wiki/Austin_Wintory",
-     "basis": "格莱美游戏配乐类页面：2026 获奖（Sword of the Sea），2023、2024 提名；Journey 曾获格莱美视觉媒体配乐提名（Wikipedia 摘要）。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "格莱美",
-     "name": "Stephen Barton",
-     "url": "https://en.wikipedia.org/wiki/Stephen_Barton",
-     "basis": "格莱美游戏配乐类页面：2024 获奖（Star Wars Jedi: Survivor，与 Gordy Haab 共享）；Wikipedia 摘要另记 2 座 SCL 奖、1 次 BAFTA 提名。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "格莱美",
-     "name": "Gordy Haab",
-     "url": "https://en.wikipedia.org/wiki/Gordy_Haab",
-     "basis": "格莱美 2024 游戏配乐类获奖（与 Barton 共享）；Wikipedia 摘要：ASCAP 年度游戏配乐、2016 G.A.N.G. 三奖、BAFTA Games 提名。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "格莱美",
-     "name": "Stephanie Economou",
-     "url": "https://en.wikipedia.org/wiki/Grammy_Award_for_Best_Score_Soundtrack_for_Video_Games_and_Other_Interactive_Media",
-     "basis": "格莱美游戏配乐类页面：2023 首届获奖。其他履历本次未读，未核实。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "格莱美",
-     "name": "Winifred Phillips",
-     "url": "https://en.wikipedia.org/wiki/Grammy_Award_for_Best_Score_Soundtrack_for_Video_Games_and_Other_Interactive_Media",
-     "basis": "格莱美游戏配乐类页面：2025 获奖。其他履历未读，未核实。",
-     "dimensions": [
-      "游戏音乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "金球奖",
-     "name": "Ramin Djawadi",
-     "url": "https://en.wikipedia.org/wiki/Ramin_Djawadi",
-     "basis": "Wikipedia 原文：2 座艾美（权力的游戏，2018 一座为『The Dragon and the Wolf』）、7 次艾美提名、3 次格莱美提名（含 Iron Man、GoT 第7季）。金球记录未读到，未核实——按『艾美/重量级提名…",
-     "dimensions": [
-      "电视/电影配乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "金球奖",
-     "name": "Bear McCreary",
-     "url": "https://en.wikipedia.org/wiki/Bear_McCreary",
-     "basis": "Wikipedia 原文：6 次艾美提名，3 座获奖（Da Vinci's Demons 主题、Percy Jackson 两座儿童与家庭艾美）；四次格莱美提名；格莱美游戏配乐类 2023、2024、2025 提名（类别页读到）。",
-     "dimensions": [
-      "游戏音乐/电视配乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "金球奖",
-     "name": "林夕",
-     "url": "https://en.wikipedia.org/wiki/Lin_Xi",
-     "basis": "Wikipedia 原文：金曲奖最佳作词人 1999、2010 两次；叱咤乐坛作词人奖 1995–2003 连续九年、2006–2009 再四年；2009 金针奖。归『区域最高奖』即近金球级。",
-     "dimensions": [
-      "流行作词"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "金球奖",
-     "name": "方文山",
-     "url": "https://en.wikipedia.org/wiki/Vincent_Fang_lyricist",
-     "basis": "Wikipedia 原文：第19届金曲奖最佳作词（青花瓷）；金曲奖作词两次获奖，连续 8 年提名。",
-     "dimensions": [
-      "流行作词"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L4",
-     "level_name": "奥斯卡",
-     "name": "Hans Zimmer（天花板）",
-     "url": "https://en.wikipedia.org/wiki/Hans_Zimmer",
-     "basis": "Wikipedia 摘要原文要点：2 座奥斯卡、1 BAFTA、3 金球、5 格莱美、7 次艾美提名。具体获奖年份未逐条核对（奥斯卡 1995《狮子王》、2022《沙丘》凭记忆，未核实）。",
-     "dimensions": [
-      "电影配乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L4",
-     "level_name": "奥斯卡",
-     "name": "John Williams（天花板）",
-     "url": "https://en.wikipedia.org/wiki/John_Williams",
-     "basis": "Wikipedia 摘要：27 格莱美、5 奥斯卡、7 BAFTA、3 艾美、4 金球；54 次奥斯卡提名。年份未逐条核实。",
-     "dimensions": [
-      "电影配乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L4",
-     "level_name": "奥斯卡",
-     "name": "Ennio Morricone（天花板）",
-     "url": "https://en.wikipedia.org/wiki/Ennio_Morricone",
-     "basis": "Wikipedia 摘要：2 奥斯卡、3 格莱美、3 金球、6 BAFTA 等。年份未逐条核实。",
-     "dimensions": [
-      "电影配乐"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L4",
-     "level_name": "奥斯卡",
-     "name": "坂本龙一 Ryuichi Sakamoto",
-     "url": "https://en.wikipedia.org/wiki/Ryuichi_Sakamoto",
-     "basis": "Wikipedia 摘要：作为电影配乐作曲获奥斯卡、BAFTA、格莱美各 1 及 2 座金球。用户点名人物；记录与奥斯卡级相符，归 L4，其余奖写在此不重复入档。具体年份未逐条核实。",
-     "dimensions": [
-      "电影配乐/实验声音设计"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L4",
-     "level_name": "奥斯卡",
-     "name": "Trent Reznor & Atticus Ross",
-     "url": "https://en.wikipedia.org/wiki/Trent_Reznor",
-     "basis": "Wikipedia 原文要点：两次奥斯卡最佳原创配乐（The Social Network、Soul）；两座格莱美影视配乐（龙纹身的女孩、Soul）；Soul 的金球与 Jon Batiste 共享。社交网络是否也获金球：本次未读到，未核实…",
-     "dimensions": [
-      "电影配乐/实验声音设计"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [
-    "实干派",
-    "格莱美",
-    "金球奖",
-    "奥斯卡"
-   ],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1Avt_Ym5EPoqI4oDRBTQXxkF1tx6zGVFZ",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "调色bot",
-   "role": "调色",
-   "group": "content",
-   "level": 0,
-   "status": "进行中",
-   "outputs_count": 0,
-   "output_types": {},
-   "has_evidence": false,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "风格化尝试：同一镜头试多种调色",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "同一镜头多套 LUT/成片对比页（可打开）",
-     "last_update": null,
-     "has_evidence": false
-    },
-    {
-     "direction": "Look v1.1 修已知局限（after 表 6/6 OK 且死黑不升）",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "v1.1 LUT 与前后对比帧",
-     "last_update": "2026-10-30 20:10",
-     "has_evidence": true
-    }
-   ],
-   "self_iteration_last_update": "2026-10-30 20:11",
-   "current_version": "v1",
-   "deliverables": [
-    {
-     "private": true,
-     "type": "文档",
-     "version": null,
-     "created_at": "2026-10-30 20:11"
-    }
-   ],
-   "private_deliverables": 1,
-   "evolution_log": [],
-   "current_level": "L0",
-   "level_progress": [
-    {
-     "task_id": "L1-T1",
-     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "L1-T7",
-     "task": "≥3 条带证据的复盘（retro）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "C-1",
-     "task": "拆 Blade Runner 2049 ≥5 帧色彩（示波器截图）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "C-2",
-     "task": "同一镜头 ≥3 种风格化调色（实物，DaVinci 工程/帧）",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "C-3",
-     "task": "自家产出对照缺口表",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "C-4",
-     "task": "补 ACES 资料",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    },
-    {
-     "task_id": "C-5",
-     "task": "自提迭代方向 ≥1 条",
-     "accepted_by": "BM",
-     "done": false,
-     "has_evidence": false
-    }
-   ],
-   "next_level_gap": [
-    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
-    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "C-1 未完成：拆 Blade Runner 2049 ≥5 帧色彩（示波器截图）",
-    "C-2 未完成：同一镜头 ≥3 种风格化调色（实物，DaVinci 工程/帧）",
-    "C-3 未完成：自家产出对照缺口表",
-    "C-4 未完成：补 ACES 资料",
-    "C-5 未完成：自提迭代方向 ≥1 条"
-   ],
-   "score_breakdown": {
-    "A": 0,
-    "B": 0,
-    "C": 0,
-    "D": 0,
-    "E": 0,
-    "F": null,
-    "total": 0,
-    "threshold": 60,
-    "F_status": "待唯一评",
-    "note": "（内容含敏感词，公开页已隐去）"
-   },
-   "benchmarks": [
-    {
-     "level": "L1",
-     "level_name": "",
-     "name": "Blade Runner 2049",
-     "url": "https://en.wikipedia.org/wiki/Blade_Runner_2049",
-     "basis": "条目：Best Cinematography",
-     "dimensions": [
-      "主色调",
-      "对比"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L2",
-     "level_name": "",
-     "name": "O Brother, Where Art Thou?",
-     "url": "https://en.wikipedia.org/wiki/O_Brother_Where_Art_Thou%3F",
-     "basis": "条目含 digital intermediate / color grading（DI 先例，非奖项）",
-     "dimensions": [
-      "全片 Look 一致"
-     ],
-     "verified": true,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    },
-    {
-     "level": "L3",
-     "level_name": "",
-     "name": "业内调色奖（HPA Awards）",
-     "url": "",
-     "basis": "未读，未核实",
-     "dimensions": [],
-     "verified": false,
-     "pending_owner_confirm": false,
-     "single_scope": ""
-    }
-   ],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1JtPDbBYIFjRKUfNaYUQWmc6beL0X9cl9",
-   "north_star_dimension_progress": {
-    "quality": null,
-    "story": null,
-    "rhythm": null
-   }
-  },
-  {
-   "name": "制片bot",
-   "role": "制片",
-   "group": "ops",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 1,
-   "output_types": {
-    "文档": 1
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [],
-   "self_iteration_last_update": null,
-   "current_version": null,
-   "deliverables": [],
-   "private_deliverables": 0,
-   "evolution_log": [],
-   "current_level": "不适用",
-   "level_progress": [],
-   "next_level_gap": [],
-   "score_breakdown": {},
-   "benchmarks": [],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "",
-   "north_star_dimension_progress": null
-  },
-  {
-   "name": "文秘Bot",
-   "role": "文秘",
-   "group": "ops",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 1,
-   "output_types": {
-    "文档": 1
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [],
-   "self_iteration_last_update": null,
-   "current_version": null,
-   "deliverables": [],
-   "private_deliverables": 0,
-   "evolution_log": [],
-   "current_level": "不适用",
-   "level_progress": [],
-   "next_level_gap": [],
-   "score_breakdown": {},
-   "benchmarks": [],
-   "single_techniques": [],
-   "level_names": [],
-   "drive_folder_url": "",
-   "north_star_dimension_progress": null
-  },
-  {
-   "name": "学习bot",
-   "role": "Bot",
-   "group": "content",
-   "level": 0,
-   "status": "已交付",
-   "outputs_count": 2,
-   "output_types": {
-    "文档": 2
-   },
-   "has_evidence": true,
-   "retro_today": false,
-   "iteration_directions": [
-    {
-     "direction": "词句库 v2：补出处与第 2-4 周词表",
-     "status": "进行中",
-     "progress": 20,
-     "next_physical_deliverable": "词句库 v2 文档（每条有来源或标「通用」）",
-     "last_update": "2026-10-30 20:05",
+     "progress": 50,
+     "next_physical_deliverable": "可运行的 canvas-tool 回归测试脚本及运行记录",
+     "last_update": "2026-10-30 20:27",
      "has_evidence": true
     },
     {
-     "direction": "摸底对话脚本与 10 分钟评估",
-     "status": "未开始",
-     "progress": 0,
-     "next_physical_deliverable": "水平记录文件（原文完成定义）",
-     "last_update": null,
-     "has_evidence": false
+     "direction": "UE/Maya 工具开源先行评估+最小验证",
+     "status": "进行中",
+     "progress": 30,
+     "next_physical_deliverable": "可运行的 Maya 相机/动画 FBX 批量导出脚本最小验证版",
+     "last_update": "2026-10-30 20:27",
+     "has_evidence": true
     }
    ],
-   "self_iteration_last_update": "2026-10-30 20:05",
-   "current_version": "v1",
+   "self_iteration_last_update": "2026-10-30 22:31",
+   "current_version": "v2.1",
    "deliverables": [
     {
      "private": true,
      "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:05"
-    },
-    {
-     "private": true,
-     "type": "文档",
-     "version": "v1",
-     "created_at": "2026-10-30 20:05"
+     "version": "v2.1",
+     "created_at": "2026-10-30 20:27"
     },
     {
      "private": true,
      "type": "文档",
      "version": null,
-     "created_at": "2026-10-30 20:05"
+     "created_at": "2026-11-02 20:27"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-11-02 22:05"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-11-02 22:55"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-11-03 08:12"
     }
    ],
-   "private_deliverables": 3,
+   "private_deliverables": 5,
    "evolution_log": [],
    "current_level": "L0",
    "level_progress": [
@@ -3014,35 +657,35 @@
      "has_evidence": false
     },
     {
-     "task_id": "N-1",
-     "task": "10 分钟摸底出水平记录",
+     "task_id": "P-1",
+     "task": "看板仓库按 OpenSSF passing 标准自查 ≥10 条",
      "accepted_by": "BM",
      "done": false,
      "has_evidence": false
     },
     {
-     "task_id": "N-2",
-     "task": "每日 20 分钟练习连续 ≥7 天（以唯一实际练习记录为准）",
+     "task_id": "P-2",
+     "task": "Maya/UE 第一件小工具（实物，需唯一选）",
      "accepted_by": "BM",
      "done": false,
      "has_evidence": false
     },
     {
-     "task_id": "N-3",
-     "task": "错句清单 ≥30",
+     "task_id": "P-3",
+     "task": "单测 ≥10 且可复跑",
      "accepted_by": "BM",
      "done": false,
      "has_evidence": false
     },
     {
-     "task_id": "N-4",
-     "task": "实物：音频发音样本或计划",
+     "task_id": "P-4",
+     "task": "发布说明（非 git log）",
      "accepted_by": "BM",
      "done": false,
      "has_evidence": false
     },
     {
-     "task_id": "N-5",
+     "task_id": "P-5",
      "task": "自提迭代方向 ≥1 条",
      "accepted_by": "BM",
      "done": false,
@@ -3052,11 +695,11 @@
    "next_level_gap": [
     "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
     "L1-T7 未完成：≥3 条带证据的复盘（retro）",
-    "N-1 未完成：10 分钟摸底出水平记录",
-    "N-2 未完成：每日 20 分钟练习连续 ≥7 天（以唯一实际练习记录为准）",
-    "N-3 未完成：错句清单 ≥30",
-    "N-4 未完成：实物：音频发音样本或计划",
-    "N-5 未完成：自提迭代方向 ≥1 条"
+    "P-1 未完成：看板仓库按 OpenSSF passing 标准自查 ≥10 条",
+    "P-2 未完成：Maya/UE 第一件小工具（实物，需唯一选）",
+    "P-3 未完成：单测 ≥10 且可复跑",
+    "P-4 未完成：发布说明（非 git log）",
+    "P-5 未完成：自提迭代方向 ≥1 条"
    ],
    "score_breakdown": {
     "A": 0,
@@ -3074,11 +717,13 @@
     {
      "level": "L1",
      "level_name": "",
-     "name": "CEFR 升一档（如 B1→B2，以摸底为起点）",
-     "url": "https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages",
-     "basis": "条目含 B1–C2 分级表；coe.int 官方描述页本轮未读到原文，官方页未核实",
+     "name": "OpenSSF Best Practices passing",
+     "url": "https://www.bestpractices.dev/en/criteria/0",
+     "basis": "原文：MUST use at least one automated test suite；unique version identifier",
      "dimensions": [
-      "听说读写自评表+样本"
+      "测试",
+      "版本",
+      "发布说明"
      ],
      "verified": true,
      "pending_owner_confirm": false,
@@ -3087,24 +732,22 @@
     {
      "level": "L2",
      "level_name": "",
-     "name": "IELTS 分数↔CEFR 对照，模考达到对应 B2 区间",
-     "url": "https://en.wikipedia.org/wiki/International_English_Language_Testing_System",
-     "basis": "（内容含敏感词，公开页已隐去）",
-     "dimensions": [
-      "四项分项分"
-     ],
-     "verified": true,
+     "name": "OpenSSF Best Practices Silver",
+     "url": "https://www.bestpractices.dev/en/criteria/1",
+     "basis": "未读，未核实",
+     "dimensions": [],
+     "verified": false,
      "pending_owner_confirm": false,
      "single_scope": ""
     },
     {
      "level": "L3",
      "level_name": "",
-     "name": "TOEFL/IELTS 对应 C1",
-     "url": "https://en.wikipedia.org/wiki/Test_of_English_as_a_Foreign_Language",
-     "basis": "条目含 CEFR 对照字样（分数线未摘录）",
+     "name": "OpenSSF Scorecard",
+     "url": "https://github.com/ossf/scorecard",
+     "basis": "原文：Each individual check returns a score of 0 to 10",
      "dimensions": [
-      "正式或官方模考成绩"
+      "分项打分"
      ],
      "verified": true,
      "pending_owner_confirm": false,
@@ -3113,7 +756,383 @@
    ],
    "single_techniques": [],
    "level_names": [],
-   "drive_folder_url": "https://drive.google.com/drive/folders/1VF8qhfGysUPdczYrxJv8PcSiwW1k7_fY",
+   "drive_folder_url": "https://drive.google.com/drive/folders/1hsbThdzdizURa3bJzVFEC4LYdQ-Nn_Rv",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
+  },
+  {
+   "name": "AI资讯bot",
+   "role": "AI 资讯",
+   "group": "content",
+   "level": 0,
+   "status": "已交付",
+   "outputs_count": 1,
+   "output_types": {
+    "文档": 1
+   },
+   "has_evidence": true,
+   "retro_today": false,
+   "iteration_directions": [
+    {
+     "direction": "当天采纳项挑 1 条做最小验证",
+     "status": "进行中",
+     "progress": 30,
+     "next_physical_deliverable": "verifications 文件落盘（原文完成定义）",
+     "last_update": "2026-10-30 20:04",
+     "has_evidence": true
+    },
+    {
+     "direction": "缺档自检并补档（榜单、日报）",
+     "status": "未开始",
+     "progress": 0,
+     "next_physical_deliverable": "文件齐全（原文完成定义）",
+     "last_update": null,
+     "has_evidence": false
+    }
+   ],
+   "self_iteration_last_update": "2026-10-30 20:04",
+   "current_version": null,
+   "deliverables": [
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-10-30 20:04"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-10-30 20:04"
+    }
+   ],
+   "private_deliverables": 2,
+   "evolution_log": [],
+   "current_level": "L0",
+   "level_progress": [
+    {
+     "task_id": "L1-T1",
+     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "L1-T7",
+     "task": "≥3 条带证据的复盘（retro）",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "I-1",
+     "task": "日报按规则 7 四段格式 ≥5 篇",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "I-2",
+     "task": "每篇下游派单回链 ≥1",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "I-3",
+     "task": "Notion backlog 补齐",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "I-4",
+     "task": "实物：可打开的周报页",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "I-5",
+     "task": "自提迭代方向 ≥1 条",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    }
+   ],
+   "next_level_gap": [
+    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
+    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
+    "I-1 未完成：日报按规则 7 四段格式 ≥5 篇",
+    "I-2 未完成：每篇下游派单回链 ≥1",
+    "I-3 未完成：Notion backlog 补齐",
+    "I-4 未完成：实物：可打开的周报页",
+    "I-5 未完成：自提迭代方向 ≥1 条"
+   ],
+   "score_breakdown": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0,
+    "E": 0,
+    "F": null,
+    "total": 0,
+    "threshold": 60,
+    "F_status": "待BM评",
+    "note": "（内容含敏感词，公开页已隐去）"
+   },
+   "benchmarks": [
+    {
+     "level": "L1",
+     "level_name": "",
+     "name": "The Batch（DeepLearning.AI 周刊）",
+     "url": "https://www.deeplearning.ai/the-batch/",
+     "basis": "页面标题读到 The Batch | DeepLearning.AI | AI News & Insights；权威依据为机构出品，无奖项（存在性已核实）",
+     "dimensions": [
+      "每条新闻的「为什么重要」",
+      "篇幅控制"
+     ],
+     "verified": true,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L2",
+     "level_name": "",
+     "name": "State of AI Report",
+     "url": "https://www.stateof.ai/",
+     "basis": "首页读到 State of AI Report（存在性已核实）",
+     "dimensions": [
+      "年度趋势",
+      "可检验的预测并次年回评"
+     ],
+     "verified": true,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L3",
+     "level_name": "",
+     "name": "State of AI Report 预测回评纪律",
+     "url": "https://www.stateof.ai/",
+     "basis": "「上年预测逐条打分」做法本轮未读到原文，未核实",
+     "dimensions": [
+      "预测命中率"
+     ],
+     "verified": false,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    }
+   ],
+   "single_techniques": [],
+   "level_names": [],
+   "drive_folder_url": "https://drive.google.com/drive/folders/1OlD7Lb9zjH2fH_9kMOklKo52QTGuyYQS",
+   "north_star_dimension_progress": {
+    "quality": null,
+    "story": null,
+    "rhythm": null
+   }
+  },
+  {
+   "name": "交易bot",
+   "role": "自动化",
+   "group": "content",
+   "level": 0,
+   "status": "已交付",
+   "outputs_count": 2,
+   "output_types": {
+    "文档": 2
+   },
+   "has_evidence": true,
+   "retro_today": false,
+   "iteration_directions": [
+    {
+     "direction": "8 周学习队列：每周一项可验收物，最终合并为否决规则清单 v2",
+     "status": "进行中",
+     "progress": 10,
+     "next_physical_deliverable": "否决规则清单 v2（合并8周所得，标注已覆盖/冲突/缺口）",
+     "last_update": "2026-10-30 20:04",
+     "has_evidence": true
+    },
+    {
+     "direction": "用决策日志模板回填 10-26 至 11-06 每日记录",
+     "status": "未开始",
+     "progress": 0,
+     "next_physical_deliverable": "（内容含敏感词，公开页已隐去）",
+     "last_update": null,
+     "has_evidence": false
+    }
+   ],
+   "self_iteration_last_update": "2026-10-30 20:04",
+   "current_version": "v0",
+   "deliverables": [
+    {
+     "private": true,
+     "type": "文档",
+     "version": "v0",
+     "created_at": "2026-10-30 20:04"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-10-30 20:04"
+    },
+    {
+     "private": true,
+     "type": "文档",
+     "version": null,
+     "created_at": "2026-10-30 20:04"
+    }
+   ],
+   "private_deliverables": 3,
+   "evolution_log": [],
+   "current_level": "L0",
+   "level_progress": [
+    {
+     "task_id": "L1-T1",
+     "task": "paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "L1-T7",
+     "task": "≥3 条带证据的复盘（retro）",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "T-1",
+     "task": "每交易日 选股→下单→止损止盈→复盘 全流程留痕 ≥10 日",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "T-2",
+     "task": "（内容含敏感词，公开页已隐去）",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "T-3",
+     "task": "空仓必须附证据",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "T-4",
+     "task": "（内容含敏感词，公开页已隐去）",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    },
+    {
+     "task_id": "T-5",
+     "task": "自提迭代方向 ≥1 条",
+     "accepted_by": "BM",
+     "done": false,
+     "has_evidence": false
+    }
+   ],
+   "next_level_gap": [
+    "L1-T1 未完成：paths 文件 7 节齐全，每条对标有链接或写「未找到+搜过哪里」",
+    "L1-T7 未完成：≥3 条带证据的复盘（retro）",
+    "T-1 未完成：每交易日 选股→下单→止损止盈→复盘 全流程留痕 ≥10 日",
+    "（内容含敏感词，公开页已隐去）",
+    "T-3 未完成：空仓必须附证据",
+    "（内容含敏感词，公开页已隐去）",
+    "T-5 未完成：自提迭代方向 ≥1 条"
+   ],
+   "score_breakdown": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0,
+    "E": 0,
+    "F": null,
+    "total": 0,
+    "threshold": 60,
+    "F_status": "待BM评",
+    "note": "（内容含敏感词，公开页已隐去）"
+   },
+   "benchmarks": [
+    {
+     "level": "L1",
+     "level_name": "",
+     "name": "最大回撤（风险度量）",
+     "url": "https://en.wikipedia.org/wiki/Drawdown_economics",
+     "basis": "条目引文献 Maximum Drawdown as a Risk Measure",
+     "dimensions": [
+      "每笔止损执行率",
+      "最大回撤"
+     ],
+     "verified": true,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L1",
+     "level_name": "",
+     "name": "沪深300 指数作收益基准",
+     "url": "",
+     "basis": "未读指数官网原文，未核实",
+     "dimensions": [
+      "超额收益"
+     ],
+     "verified": false,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L2",
+     "level_name": "",
+     "name": "Sharpe ratio（及 Sortino）",
+     "url": "https://en.wikipedia.org/wiki/Sharpe_ratio",
+     "basis": "条目读到 Sortino ratio 对照段",
+     "dimensions": [
+      "（内容含敏感词，公开页已隐去）"
+     ],
+     "verified": true,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L2",
+     "level_name": "",
+     "name": "SPIVA（主动 vs 指数）",
+     "url": "https://www.spglobal.com/spdji/en/research-insights/spiva/",
+     "basis": "curl 403，未读，未核实",
+     "dimensions": [],
+     "verified": false,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    },
+    {
+     "level": "L3",
+     "level_name": "",
+     "name": "（内容含敏感词，公开页已隐去）",
+     "url": "https://en.wikipedia.org/wiki/Kelly_criterion",
+     "basis": "条目原文：满凯利风险过大（not worth…）",
+     "dimensions": [
+      "（内容含敏感词，公开页已隐去）",
+      "分数凯利"
+     ],
+     "verified": true,
+     "pending_owner_confirm": false,
+     "single_scope": ""
+    }
+   ],
+   "single_techniques": [],
+   "level_names": [],
+   "drive_folder_url": "https://drive.google.com/drive/folders/1ifsTAbwtPPF6tF_Jfs_OL0uVThuWwx5G",
    "north_star_dimension_progress": {
     "quality": null,
     "story": null,
@@ -3496,6 +1515,28 @@
     "制片bot": 0,
     "文秘Bot": 0,
     "学习bot": 0
+   }
+  },
+  {
+   "date": "2026-11-13",
+   "kind": "daily",
+   "total": 4,
+   "content_total": 4,
+   "ops_count": 0,
+   "level_counts": {
+    "L0": 4
+   },
+   "status_counts": {
+    "已交付": 4,
+    "进行中": 0,
+    "逾期": 0,
+    "不适用": 0
+   },
+   "levels": {
+    "导演bot": 0,
+    "编程Bot": 0,
+    "AI资讯bot": 0,
+    "交易bot": 0
    }
   }
  ]
